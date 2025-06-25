@@ -1,9 +1,16 @@
 <?php
 /*
-Plugin Name: OceanBase Delete Expired Transients
-Description: Intercepts and modifies specific SQL DELETE queries targeting wp_options and wp_sitemeta.
-Version: 1.0
-*/
+ * Plugin Name:       OceanBase Compatibility
+ * Description:       Intercepts and modifies specific SQL DELETE queries targeting wp_options and wp_sitemeta.
+ * Version:           1.0.1
+ * Requires at least: 5.2
+ * Requires PHP:      7.2
+ * Author:            sc-source
+ * Author URI:        https://github.com/sc-source
+ * License:           Apache License Version 2.0
+ * License URI:       http://www.apache.org/licenses/LICENSE-2.0
+ * Text Domain:       oceanbase-compatibility
+ */
 
 class OceanBase_Delete_Expired_Transients {
     public function __construct() {
