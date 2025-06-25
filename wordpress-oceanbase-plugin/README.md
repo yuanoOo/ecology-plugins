@@ -2,7 +2,7 @@
 
 OceanBase Compatibility Plugin for WordPress
 
-OceanBase is a high-performance database compatible with the MySQL protocol.   In real-world usage with WordPress, there are rare cases where certain queries may fail to execute properly.   This plugin is specifically designed for OceanBase MySQL tenant databases, automatically detecting and fixing compatibility issues between WordPress and OceanBase MySQL tenants to ensure WordPress runs smoothly on OceanBase.
+OceanBase is a high-performance database compatible with the MySQL protocol. In real-world usage with WordPress, there are rare cases where certain queries may fail to execute properly. This plugin is specifically designed for OceanBase MySQL tenant databases, automatically detecting and fixing compatibility issues between WordPress and OceanBase MySQL tenants to ensure WordPress runs smoothly on OceanBase.
 
 ## Currently Resolved Issues
 
