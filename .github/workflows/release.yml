@@ -50,7 +50,7 @@ jobs:
           coverage: pcov
       - name: Install WordPress Core
         run: |
-          zip -j oceanbase-wordpress-plugin.zip oceanbase-wordpress-plugin/oceanBase-delete-expired-transients.php
+          zip -j wordpress-oceanbase-plugin.zip wordpress-oceanbase-plugin/oceanBase-delete-expired-transients.php
       - name: Archive WordPress ZIP
         uses: actions/upload-artifact@v4
         with:
@@ -89,6 +89,6 @@ jobs:
         uses: actions/upload-release-asset@latest
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: oceanbase-wordpress-plugin.zip
-          asset_name: oceanbase-wordpress-plugin.zip
+          asset_path: wordpress-oceanbase-plugin/.zip
+          asset_name: wordpress-oceanbase-plugin/.zip
           asset_content_type: application/zip
