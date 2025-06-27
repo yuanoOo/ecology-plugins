@@ -216,13 +216,13 @@ your-project/
 
 欢迎提交 Issues 或 Pull Request，帮助完善插件功能。
 
-- [GitHub Issues](https://github.com/ecology-plugins/issues).
+- [GitHub Issues](https://github.com/oceanbase/ecology-plugins/issues).
 
   ------
 
 ## 📄 授权协议
 
-本项目采用 [Apache License 2.0](https://github.com/ecology-plugins/LICENSE) 协议开源。
+本项目采用 [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/LICENSE) 协议开源。
 
 ------
 

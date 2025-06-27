@@ -30,7 +30,7 @@ OceanBase 当前不支持在单条 SQL 查询中对同一张表使用多个别�
 ### 手动安装
 
 1. **下载插件包**
-   从 [GitHub 仓库](https://github.com/oceanbase/ecology-plugins.git) 下载插件包。
+   从 [GitHub 仓库](https://github.com/oceanbase/oceanbase/ecology-plugins.git) 下载插件包。
 2. **上传插件**
    通过主机控制面板（如 cPanel）或 FTP 客户端，将 `ecology-plugins/wordpress-oceanbase-plugin` 目录上传到 WordPress 的 `wp-content/plugins` 目录。
 3. **激活插件**
@@ -40,10 +40,10 @@ OceanBase 当前不支持在单条 SQL 查询中对同一张表使用多个别�
 
 ## 贡献与反馈
 
-我们欢迎通过 [GitHub Issues](https://github.com/ecology-plugins/issues) 提交问题或建议，帮助完善插件功能。
+我们欢迎通过 [GitHub Issues](https://github.com/oceanbase/ecology-plugins/issues) 提交问题或建议，帮助完善插件功能。
 
 ------
 
 ## 📄 授权协议
 
-本项目采用 [Apache License 2.0](https://github.com/ecology-plugins/LICENSE) 协议开源。
+本项目采用 [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/LICENSE) 协议开源。

@@ -157,13 +157,13 @@ project-root/
 ------
 
 ## Contributing & Feedback
-We welcome issues and pull requests to improve this project. For questions or suggestions, visit [GitHub Issues](https://github.com/ecology-plugins/issues).
+We welcome issues and pull requests to improve this project. For questions or suggestions, visit [GitHub Issues](https://github.com/oceanbase/ecology-plugins/issues).
 
 ------
 
 ## 📄 License
 
-This project is licensed under the [Apache License 2.0](https://github.com/ecology-plugins/LICENSE).
+This project is licensed under the [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/LICENSE).
 
 
 ------

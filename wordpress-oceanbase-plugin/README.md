@@ -22,15 +22,15 @@ If this plugin is available in the WordPress Plugin Directory, you can simply se
 
 ### Manual Installation
 
-1.   **Download the Plugin:** Download the plugin package from https://github.com/oceanbase/ecology-plugins.git.
+1.   **Download the Plugin:** Download the plugin package from https://github.com/oceanbase/oceanbase/ecology-plugins.git.
 2.   **Upload the Plugin:** Use your hosting control panel (such as cPanel) or an FTP client to upload the `ecology-plugins/wordpress-oceanbase-plugin` directory to the `wp-content/plugins` directory.
 3.   **Activate the Plugin:** Log in to your WordPress admin area, go to "Plugins," find the newly uploaded plugin, and click "Activate."
 
 ## Contributing & Feedback
-We welcome issues and pull requests to improve this project. For questions or suggestions, visit [GitHub Issues](https://github.com/ecology-plugins/issues).
+We welcome issues and pull requests to improve this project. For questions or suggestions, visit [GitHub Issues](https://github.com/oceanbase/ecology-plugins/issues).
 
 ------
 
 ## 📄 License
 
-This project is licensed under the [Apache License 2.0](https://github.com/ecology-plugins/LICENSE).
+This project is licensed under the [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/LICENSE).
