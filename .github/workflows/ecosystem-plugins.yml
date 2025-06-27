@@ -49,12 +49,7 @@ jobs:
       - name: Build Trino Plugin
         run: |
           cd trino-oceanbase-plugin
-          ./mvnw clean package -DskipTests
-
-      - name: Run Docker Tests
-        run: |
-          docker build -t trino-oceanbase-test .
-          docker run --rm trino-oceanbase-test
+          ./mvnw clean install
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
