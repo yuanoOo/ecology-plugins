@@ -28,7 +28,7 @@ jobs:
           mvn clean package -DskipTests
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: flyway-oceanbase-plugin
           path: flyway-oceanbase-plugin/target/*.jar
@@ -51,7 +51,7 @@ jobs:
           docker run --rm trino-oceanbase-test
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trino-oceanbase-plugin
           path: trino-oceanbase-plugin/target/*.jar
@@ -79,7 +79,7 @@ jobs:
           vendor/bin/phpunit
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: wordpress-oceanbase-plugin
           path: wordpress-oceanbase-plugin/*.zip
@@ -91,21 +91,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: flyway-oceanbase-plugin
+
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: trino-oceanbase-plugin
+
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: wordpress-oceanbase-plugin
 
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -116,7 +118,7 @@ jobs:
           prerelease: false
 
       - name: Upload Release Assets
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -126,7 +128,7 @@ jobs:
           asset_content_type: application/java-archive
 
       - name: Upload Release Assets
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -136,7 +138,7 @@ jobs:
           asset_content_type: application/java-archive
 
       - name: Upload Release Assets
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
