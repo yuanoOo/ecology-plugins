@@ -7,28 +7,29 @@ on:
 
 jobs:
   release:
-    name: Release Plugins on Tag
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Download Artifacts from Main Workflow
+      - name: Download Flyway Artifacts
         uses: actions/download-artifact@v4
         with:
           name: flyway-oceanbase-plugin
-      - name: Download Artifacts from Main Workflow
+
+      - name: Download Trino Artifacts
         uses: actions/download-artifact@v4
         with:
           name: trino-oceanbase-plugin
-      - name: Download Artifacts from Main Workflow
+
+      - name: Download WordPress Artifacts
         uses: actions/download-artifact@v4
         with:
           name: wordpress-oceanbase-plugin
 
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1.2.0
+        uses: actions/create-release@v1.2  # 使用最新版本
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -38,30 +39,24 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Assets
-        uses: actions/upload-release-asset@v1.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Flyway Release Asset
+        uses: actions/upload-release-asset@v1.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: flyway-oceanbase-plugin/target/*.jar
           asset_name: flyway-oceanbase-plugin.jar
           asset_content_type: application/java-archive
 
-      - name: Upload Release Assets
-        uses: actions/upload-release-asset@v1.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Trino Release Asset
+        uses: actions/upload-release-asset@v1.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: trino-oceanbase-plugin/target/*.jar
           asset_name: trino-oceanbase-plugin.jar
           asset_content_type: application/java-archive
 
-      - name: Upload Release Assets
-        uses: actions/upload-release-asset@v1.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload WordPress Release Asset
+        uses: actions/upload-release-asset@v1.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: wordpress-oceanbase-plugin/oceanBase-delete-expired-transients.php
