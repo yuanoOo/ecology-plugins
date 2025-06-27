@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-release-asset@latest
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: flyway-oceanbase-plugin/target/*.jar
+          asset_path: flyway-oceanbase-plugin/flyway-database-oceanbase/target/*.jar
           asset_name: flyway-oceanbase-plugin.jar
           asset_content_type: application/java-archive
 
