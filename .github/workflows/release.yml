@@ -6,30 +6,60 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  release:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Download Flyway Artifacts
-        uses: actions/download-artifact@v4
+      - name: Set up JDK for Flyway
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build Flyway Plugin
+        run: |
+          cd flyway-oceanbase-plugin
+          mvn clean package -DskipTests
+      - name: Archive Flyway JAR
+        uses: actions/upload-artifact@v4
         with:
           name: flyway-oceanbase-plugin
+          path: flyway-oceanbase-plugin/target/*.jar
 
-      - name: Download Trino Artifacts
-        uses: actions/download-artifact@v4
+      - name: Set up JDK for Trino
+        uses: actions/setup-java@v3
+        with:
+          java-version: '23'
+          distribution: 'temurin'
+      - name: Build Trino Plugin
+        run: |
+          cd trino-oceanbase-plugin
+          ./mvnw clean package -DskipTests
+      - name: Archive Trino JAR
+        uses: actions/upload-artifact@v4
         with:
           name: trino-oceanbase-plugin
+          path: trino-oceanbase-plugin/target/*.jar
 
-      - name: Download WordPress Artifacts
-        uses: actions/download-artifact@v4
+      - name: Set up PHP for WordPress
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, xml, curl, json
+          coverage: pcov
+      - name: Install WordPress Core
+        run: |
+          zip -j oceanbase-wordpress-plugin.zip oceanbase-wordpress-plugin/oceanBase-delete-expired-transients.php
+      - name: Archive WordPress ZIP
+        uses: actions/upload-artifact@v4
         with:
           name: wordpress-oceanbase-plugin
+          path: oceanbase-wordpress-plugin.zip
 
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1.2  # 使用最新版本
+        uses: actions/create-release@v1.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -59,6 +89,6 @@ jobs:
         uses: actions/upload-release-asset@v1.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: wordpress-oceanbase-plugin/oceanBase-delete-expired-transients.php
-          asset_name: oceanBase-delete-expired-transients.php
-          asset_content_type: application/php
+          asset_path: oceanbase-wordpress-plugin.zip
+          asset_name: oceanbase-wordpress-plugin.zip
+          asset_content_type: application/zip
