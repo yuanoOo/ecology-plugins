@@ -1,0 +1,146 @@
+name: OceanBase Ecosystem Plugins CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  flyway-plugin:
+    name: Build Flyway OceanBase Plugin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build Flyway Plugin
+        run: |
+          cd flyway-oceanbase-plugin
+          mvn clean package -DskipTests
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: flyway-oceanbase-plugin
+          path: flyway-oceanbase-plugin/target/*.jar
+
+  trino-plugin:
+    name: Build Trino OceanBase Plugin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Build Trino Plugin
+        run: |
+          cd trino-oceanbase-plugin
+          ./mvnw clean package -DskipTests
+
+      - name: Run Docker Tests
+        run: |
+          docker build -t trino-oceanbase-test .
+          docker run --rm trino-oceanbase-test
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: trino-oceanbase-plugin
+          path: trino-oceanbase-plugin/target/*.jar
+
+  wordpress-plugin:
+    name: Build WordPress OceanBase Plugin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Install Dependencies
+        run: |
+          cd wordpress-oceanbase-plugin
+          composer install
+
+      - name: Run PHPUnit Tests
+        run: |
+          cd wordpress-oceanbase-plugin
+          vendor/bin/phpunit
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: wordpress-oceanbase-plugin
+          path: wordpress-oceanbase-plugin/*.zip
+
+  release:
+    name: Release Plugins
+    needs: [flyway-plugin, trino-plugin, wordpress-plugin]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: flyway-oceanbase-plugin
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: trino-oceanbase-plugin
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: wordpress-oceanbase-plugin
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.sha }}
+          release_name: OceanBase Ecosystem Plugins Release
+          body: Automated release of OceanBase ecosystem plugins
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: flyway-oceanbase-plugin/target/*.jar
+          asset_name: flyway-oceanbase-plugin.jar
+          asset_content_type: application/java-archive
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: trino-oceanbase-plugin/target/*.jar
+          asset_name: trino-oceanbase-plugin.jar
+          asset_content_type: application/java-archive
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: wordpress-oceanbase-plugin/*.zip
+          asset_name: wordpress-oceanbase-plugin.zip
+          asset_content_type: application/zip
