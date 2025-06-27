@@ -59,7 +59,7 @@ jobs:
 
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1.1.0
+        uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -70,7 +70,7 @@ jobs:
           prerelease: false
 
       - name: Upload Flyway Release Asset
-        uses: actions/upload-release-asset@v1.1.0
+        uses: actions/upload-release-asset@latest
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: flyway-oceanbase-plugin/target/*.jar
@@ -78,7 +78,7 @@ jobs:
           asset_content_type: application/java-archive
 
       - name: Upload Trino Release Asset
-        uses: actions/upload-release-asset@v1.1.0
+        uses: actions/upload-release-asset@latest
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: trino-oceanbase-plugin/target/*.jar
@@ -86,7 +86,7 @@ jobs:
           asset_content_type: application/java-archive
 
       - name: Upload WordPress Release Asset
-        uses: actions/upload-release-asset@v1.1.0
+        uses: actions/upload-release-asset@latest
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: oceanbase-wordpress-plugin.zip
