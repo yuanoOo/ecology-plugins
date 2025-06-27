@@ -27,5 +27,10 @@ If this plugin is available in the WordPress Plugin Directory, you can simply se
 3.   **Activate the Plugin:** Log in to your WordPress admin area, go to "Plugins," find the newly uploaded plugin, and click "Activate."
 
 ## Contributing & Feedback
+We welcome issues and pull requests to improve this project. For questions or suggestions, visit [GitHub Issues](https://github.com/ecology-plugins/issues).
 
-We welcome issues and pull requests to help improve this plugin.   If you have any questions or suggestions, please submit them via GitHub Issues.
+------
+
+## 📄 License
+
+This project is licensed under the [Apache License 2.0](https://github.com/ecology-plugins/LICENSE).

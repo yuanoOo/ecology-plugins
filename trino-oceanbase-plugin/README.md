@@ -1,32 +1,46 @@
-## Usage
+# trino-oceanbase-plugin
 
-### Building Plugin
+## Plugin Overview
 
-Build requirements
+This plugin enables **Trino** to connect and query **OceanBase** databases in both **MySQL** and **Oracle modes**. It provides compatibility with OceanBase's SQL syntax, decimal handling, and connection management.
 
-* Java 17.0.4+, 64-bit
+------
+
+## Building the Plugin
+
+### Prerequisites
+
+- Java 17.0.4+ (64-bit)
 
 Run the following command from the project root directory:
 
-    ./mvnw clean package -DskipTests
+```shell
+./mvnw clean package -DskipTests
+```
 
-There plugin files should be under the `target` directory.
+The plugin JAR file will be generated in the `target` directory.
 
-### Running with Docker
+------
 
-Firstly, start a trino Docker container.
+## Running with Docker
+
+### Step 1: Start a Trino Docker Container
 
 ```shell
 docker run --name trino -d trinodb/trino:468
 ```
 
-Create `log.properties`.
+------
+
+### Step 2: Create Configuration Files
+
+#### 1. `log.properties`
 
 ```text
 io.trino=DEBUG
 ```
 
-Create `oceanbase.properties`.
+#### 2. `oceanbase.properties`
 
 ```properties
 connector.name=oceanbase
@@ -40,32 +54,118 @@ decimal-mapping=ALLOW_OVERFLOW
 decimal-rounding-mode=HALF_UP
 ```
 
-Patch plugin and config files to container and restart container.
+> ⚠️ **Notes**:
+>
+> - `${ENV:USER}`, `${ENV:USERNAME}`, and `${ENV:PASSWORD}` are environment variables.
+> - `oceanbase.compatible-mode=oracle` specifies the Oracle mode compatibility.
+
+------
+
+### Step 3: Deploy Plugin and Config Files to Container
+
+Execute the following commands to copy files to the container and restart it:
 
 ```shell
-# add plugin files
-docker cp trino-oceanbase-468 trino:/data/trino/plugin/oceanbase
+# Add plugin file
+docker cp target/trino-oceanbase-468.jar trino:/data/trino/plugin/oceanbase/
 
-# add log config file
-docker cp log.properties trino:/etc/trino
+# Add log configuration file
+docker cp log.properties trino:/etc/trino/
 
-# add catalog config file
-docker cp oceanbase.properties trino:/etc/trino/catalog
+# Add OceanBase catalog configuration file
+docker cp oceanbase.properties trino:/etc/trino/catalog/
 
-# add timezone files
+# Add timezone files (set container timezone to Shanghai)
 docker cp /usr/share/zoneinfo trino:/usr/share/zoneinfo
 docker cp /usr/share/zoneinfo/Asia/Shanghai trino:/etc/localtime
 
-# restart container
+# Restart container
 docker restart trino
 ```
 
-Then you can execute query with the cli.
+------
+
+### Step 4: Verify Plugin Functionality
+
+Use the Trino CLI to verify the plugin is working:
 
 ```shell
+# Enter container and launch Trino CLI
 docker exec -it trino trino
 ```
 
 ```sql
+-- Check available catalogs
 SHOW CATALOGS;
 ```
+
+If `oceanbase` appears in the output, the plugin is successfully loaded.
+
+------
+
+## Configuration Details
+
+### OceanBase Connector Parameters
+
+| Parameter                             | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| `connector.name`                      | Specifies the connector type as OceanBase                    |
+| `connection-url`                      | OceanBase database connection URL (supports environment variable substitution) |
+| `connection-user`                     | Database username                                            |
+| `connection-password`                 | Database password                                            |
+| `oceanbase.compatible-mode`           | Compatibility mode (`oracle` or `mysql`)                     |
+| `oceanbase.auto-reconnect`            | Enables automatic reconnection                               |
+| `oceanbase.remarks-reporting.enabled` | Enables remarks reporting                                    |
+| `decimal-mapping`                     | Decimal mapping strategy (`ALLOW_OVERFLOW` allows overflow)  |
+| `decimal-rounding-mode`               | Decimal rounding mode (`HALF_UP` for standard rounding)      |
+
+------
+
+## Common Issues
+
+### Q1: Plugin not loaded, error: `Catalog not found`?
+
+**A1: Solutions**
+
+1. Confirm the plugin file is correctly copied to `/data/trino/plugin/oceanbase/`.
+2. Ensure `oceanbase.properties` is placed in `/etc/trino/catalog/`.
+3. Verify the container timezone files are set correctly.
+
+------
+
+### Q2: Connection error: `Connection refused`?
+
+**A2: Solutions**
+
+1. Ensure OceanBase is running and listening on port `2883`.
+2. Check the `connection-url` for correct host and port.
+3. Validate the user permissions allow remote connections.
+
+------
+
+## Project Structure Example
+
+```
+project-root/
+├── log.properties
+├── oceanbase.properties
+├── target/
+│   └── trino-oceanbase-468.jar
+└── README.md
+```
+
+------
+
+## Contributing & Feedback
+We welcome issues and pull requests to improve this project. For questions or suggestions, visit [GitHub Issues](https://github.com/ecology-plugins/issues).
+
+------
+
+## 📄 License
+
+This project is licensed under the [Apache License 2.0](https://github.com/ecology-plugins/LICENSE).
+
+
+------
+
+With this plugin, Trino can seamlessly connect to OceanBase databases (both MySQL and Oracle modes), enabling efficient data querying and analysis.
