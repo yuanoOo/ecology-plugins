@@ -10,9 +10,9 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 | Plugin Name                                                  | Use Case           | Key Features                                                 |
 | ------------------------------------------------------------ | ------------------ | ------------------------------------------------------------ |
-| [Flyway OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/flyway-oceanbase-plugin/README.md) | Database Migration | Resolves compatibility issues when using Flyway with OceanBase in MySQL mode |
-| [Trino OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/trino-oceanbase-plugin/README.md) | Data Analysis      | Enables Trino to connect to OceanBase (MySQL/Oracle mode)    |
-| [WordPress OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/wordpress-oceanbase-plugin/README.md) | Content Management | Fixes compatibility issues between WordPress and OceanBase MySQL tenants |
+| [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md) | Database Migration | Resolves compatibility issues when using Flyway with OceanBase in MySQL mode |
+| [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) | Data Analysis      | Enables Trino to connect to OceanBase (MySQL/Oracle mode)    |
+| [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) | Content Management | Fixes compatibility issues between WordPress and OceanBase MySQL tenants |
 
 ------
 
@@ -22,7 +22,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 - **Function**: Resolves compatibility issues when using Flyway with OceanBase in MySQL mode (e.g., `version` column conflicts, driver compatibility).
 - **Use Case**: Managing database migrations for OceanBase MySQL mode using Flyway.
-- **Documentation**: [Flyway OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/flyway-oceanbase-plugin/README.md)
+- **Documentation**: [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md)
 
 ------
 
@@ -30,7 +30,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 - **Function**: Enables Trino to connect to OceanBase (MySQL/Oracle mode), optimizing SQL queries and transaction handling.
 - **Use Case**: Querying OceanBase databases via Trino (supports both modes).
-- **Documentation**: [Trino OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/trino-oceanbase-plugin/README.md)
+- **Documentation**: [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md)
 
 ------
 
@@ -38,7 +38,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 - **Function**: Fixes compatibility issues between WordPress and OceanBase MySQL tenants (e.g., table alias restrictions).
 - **Use Case**: Ensuring WordPress compatibility when deployed on OceanBase MySQL tenants.
-- **Documentation**: [WordPress OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/wordpress-oceanbase-plugin/README.md)
+- **Documentation**: [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md)
 
 ------
 
@@ -48,9 +48,9 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 | Plugin Name                | Documentation Link                                           |
 | -------------------------- | ------------------------------------------------------------ |
-| Flyway OceanBase Plugin    | [Flyway OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/flyway-oceanbase-plugin/README.md) |
-| Trino OceanBase Plugin     | [Trino OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/trino-oceanbase-plugin/README.md) |
-| WordPress OceanBase Plugin | [WordPress OceanBase Plugin](https://github.com/oceanbase/ecology-plugins/wordpress-oceanbase-plugin/README.md) |
+| Flyway OceanBase Plugin    | [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md) |
+| Trino OceanBase Plugin     | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) |
+| WordPress OceanBase Plugin | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) |
 
 ------
 
@@ -63,7 +63,7 @@ For questions or suggestions, visit [GitHub Issues](https://github.com/oceanbase
 
 ## 📄 License
 
-This project is licensed under the [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/LICENSE).
+This project is licensed under the [Apache License 2.0](./LICENSE).
 
 ------
 
