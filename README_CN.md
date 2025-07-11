@@ -13,8 +13,9 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | 插件名称                                                                                                       | 适用场景   | 主要功能                                           |
 |------------------------------------------------------------------------------------------------------------| ---------- | -------------------------------------------------- |
 | [Flyway OceanBase 插件](./flyway-oceanbase-plugin/README_CN.md)      | 数据库迁移 | 解决 Flyway 在 OceanBase MySQL 模式下的兼容性问题  |
-| [Trino OceanBase 插件](./trion-oceanbase-plugin/README_CN.md)        | 数据分析   | 支持 Trino 连接 OceanBase（MySQL/Oracle 模式）     |
+| [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md)        | 数据分析   | 支持 Trino 连接 OceanBase（MySQL/Oracle 模式）     |
 | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) | 内容管理   | 修复 WordPress 与 OceanBase MySQL 租户的兼容性问题 |
+| [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) | 开发工具   | VSCode 插件，快速访问 OceanBase SQL 关键词文档     |
 
 ------
 
@@ -44,13 +45,22 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 
 ------
 
+### ✅ OceanBase SQL 助手插件
+
+- **功能**：VSCode 插件，提供 OceanBase SQL 关键词文档的快速访问，支持悬停提示和直接导航。
+- **适用场景**：增强开发者在编写 OceanBase 数据库 SQL 查询时的开发体验。
+- **详细文档**：[OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md)
+
+------
+
 ## 📚 完整文档链接
 
 | 插件名称                    | 文档链接                                                     |
 | --------------------------- | ------------------------------------------------------------ |
 | Flyway OceanBase MySQL 插件 | [Flyway OceanBase 插件](./flyway-oceanbase-plugin/README_CN.md) |
-| Trino OceanBase 插件        | [Trino OceanBase 插件](./trion-oceanbase-plugin/README_CN.md) |
+| Trino OceanBase 插件        | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md) |
 | WordPress OceanBase 插件    | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) |
+| OceanBase SQL 助手插件      | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) |
 
 ------
 

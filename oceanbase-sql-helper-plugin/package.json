@@ -1,0 +1,47 @@
+{
+  "name": "oceanbase-sql-keywords-helper",
+  "displayName": "OceanBase SQL Keywords Documentation Helper",
+  "description": "通过关键词快速跳转到 OceanBase SQL 文档的 VSCode 插件。",
+  "version": "0.0.1",
+  "icon": "icon.png",
+  "publisher": "AmberMoe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oceanbase/ecology-plugins.git"
+  },
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:sql",
+    "onCommand:oceanbaseSqlKeywordsHelper.openDoc"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "oceanbaseSqlKeywordsHelper.openDoc",
+        "title": "OceanBase SQL: 跳转到关键词文档"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "test": "node ./out/test/runTest.js",
+    "test:simple": "npm run compile && node ./out/test/run-simple-test.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.0.10",
+    "@types/vscode": "^1.101.0",
+    "@vscode/test-electron": "^2.5.2",
+    "typescript": "^4.9.5",
+    "vscode-test": "^1.6.1"
+  }
+}

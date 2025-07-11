@@ -13,6 +13,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md) | Database Migration | Resolves compatibility issues when using Flyway with OceanBase in MySQL mode |
 | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) | Data Analysis      | Enables Trino to connect to OceanBase (MySQL/Oracle mode)    |
 | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) | Content Management | Fixes compatibility issues between WordPress and OceanBase MySQL tenants |
+| [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) | Development Tools  | VSCode extension for quick access to OceanBase SQL keywords documentation |
 
 ------
 
@@ -42,6 +43,14 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 ------
 
+### ✅ OceanBase SQL Helper Plugin
+
+- **Function**: VSCode extension that provides quick access to OceanBase SQL keywords documentation with hover tooltips and direct navigation.
+- **Use Case**: Enhancing developer experience when writing SQL queries for OceanBase databases.
+- **Documentation**: [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md)
+
+------
+
 ## 📚 Full Documentation Links
 
 全屏复制
@@ -51,6 +60,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | Flyway OceanBase Plugin    | [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md) |
 | Trino OceanBase Plugin     | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) |
 | WordPress OceanBase Plugin | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) |
+| OceanBase SQL Helper Plugin | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) |
 
 ------
 
