@@ -14,6 +14,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) | Data Analysis      | Enables Trino to connect to OceanBase (MySQL/Oracle mode)    |
 | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) | Content Management | Fixes compatibility issues between WordPress and OceanBase MySQL tenants |
 | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) | Development Tools  | VSCode extension for quick access to OceanBase SQL keywords documentation |
+| [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM         | SQLAlchemy dialect for OceanBase Oracle mode, compatible with SQLAlchemy 1.3+ and 2.0+ |
 
 ------
 
@@ -51,6 +52,14 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 ------
 
+### ✅ OceanBase SQLAlchemy Plugin
+
+- **Function**: SQLAlchemy dialect for OceanBase Oracle mode, fully compatible with SQLAlchemy 1.3.x and 2.0+, providing optimized SQL queries and constraint reflection.
+- **Use Case**: Using Python SQLAlchemy ORM framework to connect and operate OceanBase Oracle mode databases.
+- **Documentation**: [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md)
+
+------
+
 ## 📚 Full Documentation Links
 
 全屏复制
@@ -61,6 +70,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | Trino OceanBase Plugin     | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) |
 | WordPress OceanBase Plugin | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) |
 | OceanBase SQL Helper Plugin | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) |
+| OceanBase SQLAlchemy Plugin | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) |
 
 ------
 

@@ -55,7 +55,26 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: wordpress-oceanbase-plugin
-          path: oceanbase-wordpress-plugin.zip
+          path: wordpress-oceanbase-plugin.zip
+
+      - name: Set up Python for SQLAlchemy
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        run: |
+          cd oceanbase-sqlalchemy-plugin
+          pip install --upgrade pip
+          pip install build twine wheel
+      - name: Build SQLAlchemy Plugin
+        run: |
+          cd oceanbase-sqlalchemy-plugin
+          python -m build
+      - name: Archive SQLAlchemy Package
+        uses: actions/upload-artifact@v4
+        with:
+          name: oceanbase-sqlalchemy-plugin
+          path: oceanbase-sqlalchemy-plugin/dist/*
 
       - name: Create GitHub Release
         id: create_release
@@ -89,6 +108,22 @@ jobs:
         uses: actions/upload-release-asset@latest
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: wordpress-oceanbase-plugin/.zip
-          asset_name: wordpress-oceanbase-plugin/.zip
+          asset_path: wordpress-oceanbase-plugin.zip
+          asset_name: wordpress-oceanbase-plugin.zip
           asset_content_type: application/zip
+
+      - name: Upload SQLAlchemy Release Asset
+        uses: actions/upload-release-asset@latest
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: oceanbase-sqlalchemy-plugin/dist/*.whl
+          asset_name: oceanbase-sqlalchemy-plugin.whl
+          asset_content_type: application/octet-stream
+
+      - name: Upload SQLAlchemy Source Release Asset
+        uses: actions/upload-release-asset@latest
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: oceanbase-sqlalchemy-plugin/dist/*.tar.gz
+          asset_name: oceanbase-sqlalchemy-plugin.tar.gz
+          asset_content_type: application/gzip

@@ -16,6 +16,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md)        | 数据分析   | 支持 Trino 连接 OceanBase（MySQL/Oracle 模式）     |
 | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) | 内容管理   | 修复 WordPress 与 OceanBase MySQL 租户的兼容性问题 |
 | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) | 开发工具   | VSCode 插件，快速访问 OceanBase SQL 关键词文档     |
+| [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM  | SQLAlchemy 方言，支持 OceanBase Oracle 模式，兼容 SQLAlchemy 1.3+ 和 2.0+ |
 
 ------
 
@@ -53,6 +54,14 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 
 ------
 
+### ✅ OceanBase SQLAlchemy 插件
+
+- **功能**：SQLAlchemy 方言，支持 OceanBase Oracle 模式，完全兼容 SQLAlchemy 1.3.x 和 2.0+，提供优化的 SQL 查询和约束反射。
+- **适用场景**：使用 Python SQLAlchemy ORM 框架连接和操作 OceanBase Oracle 模式数据库。
+- **详细文档**：[OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md)
+
+------
+
 ## 📚 完整文档链接
 
 | 插件名称                    | 文档链接                                                     |
@@ -61,6 +70,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | Trino OceanBase 插件        | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md) |
 | WordPress OceanBase 插件    | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) |
 | OceanBase SQL 助手插件      | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) |
+| OceanBase SQLAlchemy 插件   | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) |
 
 ------
 
