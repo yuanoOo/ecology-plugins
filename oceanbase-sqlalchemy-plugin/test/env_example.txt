@@ -1,0 +1,23 @@
+# OceanBase Connection Configuration Example File
+# Copy this file to .env and fill in actual values
+
+# OceanBase server address
+OCEANBASE_HOST=localhost
+
+# OceanBase port (default 2881)
+OCEANBASE_PORT=2881
+
+# Database username
+OCEANBASE_USERNAME=your_username
+
+# Database password
+OCEANBASE_PASSWORD=your_password
+
+# Service name
+OCEANBASE_SERVICE_NAME=your_service_name
+
+# Optional: Connection timeout setting (seconds)
+# OCEANBASE_CONNECT_TIMEOUT=30
+
+# Optional: Query timeout setting (seconds)
+# OCEANBASE_QUERY_TIMEOUT=60
