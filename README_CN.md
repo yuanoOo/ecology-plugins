@@ -16,6 +16,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md)        | 数据分析   | 支持 Trino 连接 OceanBase（MySQL/Oracle 模式）     |
 | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) | 内容管理   | 修复 WordPress 与 OceanBase MySQL 租户的兼容性问题 |
 | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) | 开发工具   | VSCode 插件，快速访问 OceanBase SQL 关键词文档     |
+| [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)  | 数据可视化 | 支持 Metabase 连接 OceanBase（MySQL/Oracle 模式）  |
 
 ------
 
@@ -53,6 +54,14 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 
 ------
 
+### ✅ Metabase OceanBase 插件
+
+- **功能**：支持 Metabase 连接 OceanBase（MySQL/Oracle 模式），自动检测兼容模式并适配相应 SQL 语法。
+- **适用场景**：使用 Metabase 进行数据分析和可视化，连接 OceanBase 数据库。
+- **详细文档**：[Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)
+
+------
+
 ## 📚 完整文档链接
 
 | 插件名称                    | 文档链接                                                     |
@@ -61,6 +70,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | Trino OceanBase 插件        | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md) |
 | WordPress OceanBase 插件    | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) |
 | OceanBase SQL 助手插件      | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) |
+| Metabase OceanBase 插件     | [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md) |
 
 ------
 

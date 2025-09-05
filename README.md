@@ -14,6 +14,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) | Data Analysis      | Enables Trino to connect to OceanBase (MySQL/Oracle mode)    |
 | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) | Content Management | Fixes compatibility issues between WordPress and OceanBase MySQL tenants |
 | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) | Development Tools  | VSCode extension for quick access to OceanBase SQL keywords documentation |
+| [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md) | Data Visualization | Enables Metabase to connect to OceanBase (MySQL/Oracle mode) |
 
 ------
 
@@ -51,6 +52,14 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 ------
 
+### ✅ Metabase OceanBase Plugin
+
+- **Function**: Enables Metabase to connect to OceanBase (MySQL/Oracle mode) with automatic compatibility mode detection and SQL syntax adaptation.
+- **Use Case**: Data analysis and visualization using Metabase connected to OceanBase databases.
+- **Documentation**: [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)
+
+------
+
 ## 📚 Full Documentation Links
 
 全屏复制
@@ -61,6 +70,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | Trino OceanBase Plugin     | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) |
 | WordPress OceanBase Plugin | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) |
 | OceanBase SQL Helper Plugin | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) |
+| Metabase OceanBase Plugin  | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md) |
 
 ------
 
