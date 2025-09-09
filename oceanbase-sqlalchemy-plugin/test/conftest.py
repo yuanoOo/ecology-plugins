@@ -8,4 +8,8 @@ This file configures the pytest environment and registers the OceanBase dialect 
 from sqlalchemy.dialects import registry
 
 # Register OceanBase dialect to SQLAlchemy
-registry.register("oceanbase.cx_oracle", "sqlalchemy_oceanbase.cx_oracle", "OceanBaseDialect_cx_oracle")
+registry.register(
+    "oceanbase.cx_oracle",
+    "sqlalchemy_oceanbase.cx_oracle",
+    "OceanBaseDialect_cx_oracle",
+)
