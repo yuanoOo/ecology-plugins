@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: wordpress-oceanbase-plugin
-          path: wordpress-oceanbase-plugin.zip
+          path: oceanbase-wordpress-plugin.zip
 
       - name: Set up Python for SQLAlchemy
         uses: actions/setup-python@v4
@@ -108,8 +108,8 @@ jobs:
         uses: actions/upload-release-asset@latest
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: wordpress-oceanbase-plugin.zip
-          asset_name: wordpress-oceanbase-plugin.zip
+          asset_path: wordpress-oceanbase-plugin/.zip
+          asset_name: wordpress-oceanbase-plugin/.zip
           asset_content_type: application/zip
 
       - name: Upload SQLAlchemy Release Asset

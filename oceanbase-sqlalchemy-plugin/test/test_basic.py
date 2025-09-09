@@ -37,12 +37,12 @@ class TestOceanBaseDialect(fixtures.TestBase):
             username="test_user",
             password="test_pass",
             host="localhost",
-            port="1521",
+            port="2881",
             service_name="test_service",
         )
 
         assert "oceanbase+cx_oceanbase://" in conn_str
-        assert "test_user:test_pass@localhost:1521" in conn_str
+        assert "test_user:test_pass@localhost:2881" in conn_str
         assert "test_service" in conn_str
 
     def test_engine_creation(self):
@@ -50,7 +50,7 @@ class TestOceanBaseDialect(fixtures.TestBase):
         # This test will only work if OceanBase is available
         try:
             engine = create_engine(
-                "oceanbase+cx_oracle://test:test@localhost:1521/?service_name=test"
+                "oceanbase+cx_oracle://test:test@localhost:2881/?service_name=test"
             )
             assert engine.dialect.name == "oceanbase"
         except Exception as e:
