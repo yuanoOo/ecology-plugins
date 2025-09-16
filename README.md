@@ -16,6 +16,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) | Development Tools  | VSCode extension for quick access to OceanBase SQL keywords documentation |
 | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md) | Data Visualization | Enables Metabase to connect to OceanBase (MySQL/Oracle mode) |
 | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM         | SQLAlchemy dialect for OceanBase Oracle mode, compatible with SQLAlchemy 1.3+ and 2.0+ |
+| [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md) | LangGraph CheckpointSaver| Implementation of LangGraph CheckpointSaver that uses OceanBase MySQL mode|
 
 ------
 
@@ -69,6 +70,14 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 ------
 
+### ✅ LangGraph Checkpoint OceanBase Plugin
+
+- **Function**: OceanBase MySQL mode can be used as LangGraph's CheckpointSaver to preserve both short-term and long-term memory.
+- **Use Case**: Using OceanBase as LangGraph's Checkpointer.
+- **Documentation**: [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md)
+
+------
+
 ## 📚 Full Documentation Links
 
 全屏复制
@@ -81,6 +90,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | OceanBase SQL Helper Plugin | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) |
 | Metabase OceanBase Plugin  | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md) |
 | OceanBase SQLAlchemy Plugin | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) |
+| LangGraph Checkpoint OceanBase Plugin | [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md) |
 
 ------
 
