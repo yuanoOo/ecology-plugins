@@ -33,4 +33,4 @@ We welcome issues and pull requests to improve this project. For questions or su
 
 ## 📄 License
 
-This project is licensed under the [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/LICENSE).
+This project is licensed under the [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/blob/main/wordpress-oceanbase-plugin/LICENSE).
