@@ -2,23 +2,22 @@
 
 This repository includes multiple plugins designed to resolve compatibility issues between **OceanBase** and various frameworks/tools (such as Flyway, Trino, and WordPress). Each plugin is optimized for specific scenarios to ensure stable and efficient database operations.
 
-------
+---
 
 ## 🧩 Project Overview
 
 OceanBase is a high-performance database compatible with both MySQL and Oracle protocols. This repository provides the following plugins to help developers address common compatibility issues in real-world applications:
 
-| Plugin Name                                                  | Use Case           | Key Features                                                 |
-| ------------------------------------------------------------ | ------------------ | ------------------------------------------------------------ |
-| [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md) | Database Migration | Resolves compatibility issues when using Flyway with OceanBase in MySQL mode |
-| [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) | Data Analysis      | Enables Trino to connect to OceanBase (MySQL/Oracle mode)    |
-| [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) | Content Management | Fixes compatibility issues between WordPress and OceanBase MySQL tenants |
-| [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) | Development Tools  | VSCode extension for quick access to OceanBase SQL keywords documentation |
-| [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md) | Data Visualization | Enables Metabase to connect to OceanBase (MySQL/Oracle mode) |
+| Plugin Name                                                         | Use Case           | Key Features                                                                           |
+| ------------------------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------- |
+| [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md)         | Database Migration | Resolves compatibility issues when using Flyway with OceanBase in MySQL mode           |
+| [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md)           | Data Analysis      | Enables Trino to connect to OceanBase (MySQL/Oracle mode)                              |
+| [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md)   | Content Management | Fixes compatibility issues between WordPress and OceanBase MySQL tenants               |
+| [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) | Development Tools  | VSCode extension for quick access to OceanBase SQL keywords documentation              |
+| [Metabase OceanBase Plugin](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md)     | Data Visualization | Enables Metabase to connect to OceanBase (MySQL/Oracle mode)                           |
 | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM         | SQLAlchemy dialect for OceanBase Oracle mode, compatible with SQLAlchemy 1.3+ and 2.0+ |
-| [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md) | LangGraph CheckpointSaver| Implementation of LangGraph CheckpointSaver that uses OceanBase MySQL mode|
 
-------
+---
 
 ## 📁 Plugin Details
 
@@ -28,7 +27,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 - **Use Case**: Managing database migrations for OceanBase MySQL mode using Flyway.
 - **Documentation**: [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md)
 
-------
+---
 
 ### ✅ Trino OceanBase Plugin
 
@@ -36,7 +35,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 - **Use Case**: Querying OceanBase databases via Trino (supports both modes).
 - **Documentation**: [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md)
 
-------
+---
 
 ### ✅ WordPress OceanBase Plugin
 
@@ -44,7 +43,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 - **Use Case**: Ensuring WordPress compatibility when deployed on OceanBase MySQL tenants.
 - **Documentation**: [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md)
 
-------
+---
 
 ### ✅ OceanBase SQL Helper Plugin
 
@@ -52,15 +51,15 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 - **Use Case**: Enhancing developer experience when writing SQL queries for OceanBase databases.
 - **Documentation**: [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md)
 
-------
+---
 
 ### ✅ Metabase OceanBase Plugin
 
 - **Function**: Enables Metabase to connect to OceanBase (MySQL/Oracle mode) with automatic compatibility mode detection and SQL syntax adaptation.
 - **Use Case**: Data analysis and visualization using Metabase connected to OceanBase databases.
-- **Documentation**: [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)
+- **Documentation**: [Metabase OceanBase Plugin](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md)
 
-------
+---
 
 ### ✅ OceanBase SQLAlchemy Plugin
 
@@ -68,44 +67,33 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 - **Use Case**: Using Python SQLAlchemy ORM framework to connect and operate OceanBase Oracle mode databases.
 - **Documentation**: [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md)
 
-------
-
-### ✅ LangGraph Checkpoint OceanBase Plugin
-
-- **Function**: OceanBase MySQL mode can be used as LangGraph's CheckpointSaver to preserve both short-term and long-term memory.
-- **Use Case**: Using OceanBase as LangGraph's Checkpointer.
-- **Documentation**: [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md)
-
-------
+---
 
 ## 📚 Full Documentation Links
 
-全屏复制
-
-| Plugin Name                | Documentation Link                                           |
-| -------------------------- | ------------------------------------------------------------ |
-| Flyway OceanBase Plugin    | [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md) |
-| Trino OceanBase Plugin     | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md) |
-| WordPress OceanBase Plugin | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md) |
+| Plugin Name                 | Documentation Link                                                  |
+| --------------------------- | ------------------------------------------------------------------- |
+| Flyway OceanBase Plugin     | [Flyway OceanBase Plugin](./flyway-oceanbase-plugin/README.md)         |
+| Trino OceanBase Plugin      | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md)           |
+| WordPress OceanBase Plugin  | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md)   |
 | OceanBase SQL Helper Plugin | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) |
-| Metabase OceanBase Plugin  | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md) |
+| Metabase OceanBase Plugin   | [Metabase OceanBase Plugin](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md)     |
 | OceanBase SQLAlchemy Plugin | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) |
-| LangGraph Checkpoint OceanBase Plugin | [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md) |
 
-------
+---
 
 ## 🛠️ Contributing & Feedback
 
 We welcome contributions via **Issues** or **Pull Requests**.
 For questions or suggestions, visit [GitHub Issues](https://github.com/oceanbase/ecology-plugins/issues).
 
-------
+---
 
 ## 📄 License
 
 This project is licensed under the [Apache License 2.0](./LICENSE).
 
-------
+---
 
 ## 📌 Notes
 
