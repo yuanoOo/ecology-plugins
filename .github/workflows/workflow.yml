@@ -107,3 +107,33 @@ jobs:
         with:
           name: oceanbase-sqlalchemy-plugin
           path: oceanbase-sqlalchemy-plugin/dist/*
+  
+  langgraph-checkpoint-oceanbase-plugin:
+    name: Build LangGraph Checkpoint OceanBase Plugin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd langgraph-checkpoint-oceanbase-plugin
+          pip install --upgrade pip
+          pip install build twine wheel
+          pip install -e .
+
+      - name: Build Python package
+        run: |
+          cd langgraph-checkpoint-oceanbase-plugin
+          python -m build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: langgraph-checkpoint-oceanbase-plugin
+          path: langgraph-checkpoint-oceanbase-plugin/dist/*
