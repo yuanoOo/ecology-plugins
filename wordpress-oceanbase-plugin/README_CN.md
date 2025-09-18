@@ -46,4 +46,4 @@ OceanBase 当前不支持在单条 SQL 查询中对同一张表使用多个别�
 
 ## 📄 授权协议
 
-本项目采用 [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/LICENSE) 协议开源。
+本项目采用 [Apache License 2.0](https://github.com/oceanbase/ecology-plugins/blob/main/wordpress-oceanbase-plugin/LICENSE) 协议开源。
