@@ -16,9 +16,10 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md)        | 数据分析   | 支持 Trino 连接 OceanBase（MySQL/Oracle 模式）     |
 | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) | 内容管理   | 修复 WordPress 与 OceanBase MySQL 租户的兼容性问题 |
 | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) | 开发工具   | VSCode 插件，快速访问 OceanBase SQL 关键词文档     |
-| [Metabase OceanBase 插件](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md)  | 数据可视化 | 支持 Metabase 连接 OceanBase（MySQL/Oracle 模式）  |
+| [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)  | 数据可视化 | 支持 Metabase 连接 OceanBase（MySQL/Oracle 模式）  |
 | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM  | SQLAlchemy 方言，支持 OceanBase Oracle 模式，兼容 SQLAlchemy 1.3+ 和 2.0+ |
 | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md) | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver |
+| [OceanBase Dify 插件](./oceanbase-dify-plugins/README_CN.md)         | AI 应用     | 通过 Dify 应用程序在 OceanBase 数据库上安全执行 SQL 查询 |
 
 ------
 
@@ -60,7 +61,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 
 - **功能**：支持 Metabase 连接 OceanBase（MySQL/Oracle 模式），自动检测兼容模式并适配相应 SQL 语法。
 - **适用场景**：使用 Metabase 进行数据分析和可视化，连接 OceanBase 数据库。
-- **详细文档**：[Metabase OceanBase 插件](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md)
+- **详细文档**：[Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)
 
 ------
 
@@ -80,6 +81,14 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 
 ------
 
+### ✅ OceanBase Dify 插件
+
+- **功能**：一个简单的 OceanBase 数据库插件，通过 Dify 应用程序在 OceanBase 数据库上安全执行 SQL 查询，具有全面的错误处理和结果格式化功能。
+- **适用场景**：需要通过 Dify 平台与 OceanBase 数据库交互进行数据查询和操作的 AI 应用程序。
+- **详细文档**：[OceanBase Dify 插件](./oceanbase-dify-plugins/README_CN.md)
+
+------
+
 ## 📚 完整文档链接
 
 | 插件名称                    | 文档链接                                                     |
@@ -88,9 +97,10 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | Trino OceanBase 插件        | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md) |
 | WordPress OceanBase 插件    | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) |
 | OceanBase SQL 助手插件      | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) |
-| Metabase OceanBase 插件     | [Metabase OceanBase 插件](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md) |
+| Metabase OceanBase 插件     | [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md) |
 | OceanBase SQLAlchemy 插件   | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) |
 | LangGraph Checkpoint OceanBase 插件   | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md) |
+| OceanBase Dify 插件         | [OceanBase Dify 插件](./oceanbase-dify-plugins/README_CN.md) |
 
 ------
 
