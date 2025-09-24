@@ -24,13 +24,13 @@ langgraph-checkpoint-oceanbase 已经上传到 PyPI。可以使用下面的命�
 ```python
 from langchain.chat_models import init_chat_model
 from langgraph.graph import StateGraph, MessagesState, START
-from langgraph.checkpoint.mysql.pymysql import PyMySQLSaver
+from langgraph.checkpoint.oceanbase.pyoceanbase import PyOceanBaseSaver
 from langchain_core.runnables.config import RunnableConfig
 from langchain_core.messages import HumanMessage
 model = init_chat_model(model="qwen-max-latest", api_key="xxx",
                         base_url="https://dashscope.aliyuncs.com/compatible-mode/v1", model_provider="openai",temperature=0)
 DB_URI = "mysql://username:password@ip:port/database"
-with PyMySQLSaver.from_conn_string(DB_URI) as checkpointer:
+with PyOceanBaseSaver.from_conn_string(DB_URI) as checkpointer:
     checkpointer.setup()
 
     def call_model(state: MessagesState):
@@ -63,7 +63,7 @@ with PyMySQLSaver.from_conn_string(DB_URI) as checkpointer:
 from langchain_core.runnables import RunnableConfig
 from langgraph.config import get_store
 from langgraph.prebuilt import create_react_agent
-from langgraph.store.mysql import PyMySQLStore
+from langgraph.store.oceanbase import PyOceanBaseStore
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import HumanMessage
 from typing_extensions import TypedDict
@@ -86,7 +86,7 @@ def save_user_info(user_info: UserInfo, config: RunnableConfig) -> str:
     return "Successfully saved user info."
 
 
-with PyMySQLStore.from_conn_string(DB_URI) as store:
+with PyOceanBaseStore.from_conn_string(DB_URI) as store:
     store.setup()
     agent=create_react_agent(
         model=model,

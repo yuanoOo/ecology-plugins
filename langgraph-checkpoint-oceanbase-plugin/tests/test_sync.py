@@ -19,7 +19,7 @@ from langgraph.checkpoint.base import (
     create_checkpoint,
     empty_checkpoint,
 )
-from langgraph.checkpoint.mysql.pymysql import PyMySQLSaver, ShallowPyMySQLSaver
+from langgraph.checkpoint.oceanbase.pyoceanbase import PyOceanBaseSaver, ShallowPyMySQLSaver
 from langgraph.checkpoint.serde.types import TASKS
 from tests.conftest import (
     DEFAULT_BASE_URI,
@@ -49,7 +49,7 @@ def _database() -> Iterator[str]:
 
     # create unique db
     with pymysql.connect(
-        **PyMySQLSaver.parse_conn_string(DEFAULT_BASE_URI), autocommit=True
+        **PyOceanBaseSaver.parse_conn_string(DEFAULT_BASE_URI), autocommit=True
     ) as conn:
         with conn.cursor() as cursor:
             cursor.execute(f"CREATE DATABASE {database}")
@@ -58,35 +58,35 @@ def _database() -> Iterator[str]:
     finally:
         # drop unique db
         with pymysql.connect(
-            **PyMySQLSaver.parse_conn_string(DEFAULT_BASE_URI), autocommit=True
+            **PyOceanBaseSaver.parse_conn_string(DEFAULT_BASE_URI), autocommit=True
         ) as conn:
             with conn.cursor() as cursor:
                 cursor.execute(f"DROP DATABASE {database}")
 
 
 @contextmanager
-def _base_saver() -> Iterator[PyMySQLSaver]:
+def _base_saver() -> Iterator[PyOceanBaseSaver]:
     with _database() as database:
-        with PyMySQLSaver.from_conn_string(DEFAULT_BASE_URI + database) as checkpointer:
+        with PyOceanBaseSaver.from_conn_string(DEFAULT_BASE_URI + database) as checkpointer:
             yield checkpointer
 
 
 @contextmanager
-def _sqlalchemy_engine_saver() -> Iterator[PyMySQLSaver]:
+def _sqlalchemy_engine_saver() -> Iterator[PyOceanBaseSaver]:
     with _database() as database:
         engine = get_pymysql_sqlalchemy_engine(DEFAULT_BASE_URI + database)
         try:
-            yield PyMySQLSaver(engine.raw_connection)
+            yield PyOceanBaseSaver(engine.raw_connection)
         finally:
             engine.dispose()
 
 
 @contextmanager
-def _sqlalchemy_pool_saver() -> Iterator[PyMySQLSaver]:
+def _sqlalchemy_pool_saver() -> Iterator[PyOceanBaseSaver]:
     with _database() as database:
         pool = get_pymysql_sqlalchemy_pool(DEFAULT_BASE_URI + database)
         try:
-            yield PyMySQLSaver(pool.connect)
+            yield PyOceanBaseSaver(pool.connect)
         finally:
             pool.dispose()
 
@@ -103,7 +103,7 @@ def _shallow_saver() -> Iterator[ShallowPyMySQLSaver]:
 
 
 @contextmanager
-def _saver(name: str) -> Iterator[PyMySQLSaver | ShallowPyMySQLSaver]:
+def _saver(name: str) -> Iterator[PyOceanBaseSaver | ShallowPyMySQLSaver]:
     if name == "base":
         factory = _base_saver
     elif name == "shallow":
@@ -408,7 +408,7 @@ def test_write_with_same_checkpoint_ns_updates(saver_name: str) -> None:
 
 def test_nonnull_migrations() -> None:
     _leading_comment_remover = re.compile(r"^/\*.*?\*/")
-    for migration in PyMySQLSaver.MIGRATIONS:
+    for migration in PyOceanBaseSaver.MIGRATIONS:
         statement = _leading_comment_remover.sub("", migration).split()[0]
         assert statement.strip()
 

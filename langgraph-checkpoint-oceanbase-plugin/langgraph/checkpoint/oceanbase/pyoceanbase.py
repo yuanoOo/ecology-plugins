@@ -10,16 +10,16 @@ import pymysql
 from pymysql.cursors import DictCursor
 from typing_extensions import Self, override
 
-from langgraph.checkpoint.mysql import BaseSyncMySQLSaver, _internal
-from langgraph.checkpoint.mysql import Conn as BaseConn
-from langgraph.checkpoint.mysql.shallow import BaseShallowSyncMySQLSaver
+from langgraph.checkpoint.oceanbase import BaseSyncMySQLSaver, _internal
+from langgraph.checkpoint.oceanbase import Conn as BaseConn
+from langgraph.checkpoint.oceanbase.shallow import BaseShallowSyncMySQLSaver
 from langgraph.checkpoint.serde.base import SerializerProtocol
 
 Conn = BaseConn[pymysql.Connection]  # type: ignore
 
 
-class PyMySQLSaver(BaseSyncMySQLSaver[pymysql.Connection, DictCursor]):
-    """Checkpointer that stores checkpoints in a MySQL database."""
+class PyOceanBaseSaver(BaseSyncMySQLSaver[pymysql.Connection, DictCursor]):
+    """Checkpointer that stores checkpoints in an OceanBase database."""
 
     @staticmethod
     def parse_conn_string(conn_string: str) -> dict[str, Any]:
@@ -100,7 +100,7 @@ class ShallowPyMySQLSaver(BaseShallowSyncMySQLSaver):
             conn_string=mysql://user:password@localhost/db?unix_socket=/path/to/socket
         """
         with pymysql.connect(
-            **PyMySQLSaver.parse_conn_string(conn_string),
+            **PyOceanBaseSaver.parse_conn_string(conn_string),
             autocommit=True,
         ) as conn:
             yield cls(conn)
@@ -111,4 +111,4 @@ class ShallowPyMySQLSaver(BaseShallowSyncMySQLSaver):
         return conn.cursor(DictCursor)
 
 
-__all__ = ["PyMySQLSaver", "ShallowPyMySQLSaver", "Conn"]
+__all__ = ["PyOceanBaseSaver", "ShallowPyMySQLSaver", "Conn"]

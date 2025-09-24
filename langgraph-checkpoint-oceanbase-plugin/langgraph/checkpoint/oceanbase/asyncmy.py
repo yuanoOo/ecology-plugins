@@ -10,8 +10,8 @@ from asyncmy import Connection, connect  # type: ignore
 from asyncmy.cursors import DictCursor  # type: ignore
 from typing_extensions import Self, override
 
-from langgraph.checkpoint.mysql.aio_base import BaseAsyncMySQLSaver
-from langgraph.checkpoint.mysql.shallow import BaseShallowAsyncMySQLSaver
+from langgraph.checkpoint.oceanbase.aio_base import BaseAsyncMySQLSaver
+from langgraph.checkpoint.oceanbase.shallow import BaseShallowAsyncMySQLSaver
 from langgraph.checkpoint.serde.base import SerializerProtocol
 
 

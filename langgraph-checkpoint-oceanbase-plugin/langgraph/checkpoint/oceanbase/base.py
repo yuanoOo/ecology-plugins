@@ -14,7 +14,7 @@ from langgraph.checkpoint.base import (
     CheckpointMetadata,
     get_checkpoint_id,
 )
-from langgraph.checkpoint.mysql.utils import mysql_mariadb_branch
+from langgraph.checkpoint.oceanbase.utils import mysql_mariadb_branch
 from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
 from langgraph.checkpoint.serde.types import TASKS
 

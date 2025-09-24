@@ -6,9 +6,9 @@ import asyncmy
 import pymysql
 from sqlalchemy import Engine, create_engine
 
-from langgraph.store.mysql.aio import AIOMySQLStore
-from langgraph.store.mysql.asyncmy import AsyncMyStore
-from langgraph.store.mysql.pymysql import PyMySQLStore
+from langgraph.store.oceanbase.aio import AIOMySQLStore
+from langgraph.store.oceanbase.asyncmy import AsyncMyStore
+from langgraph.store.oceanbase.pyoceanbase import PyOceanBaseStore
 
 DEFAULT_MYSQL_URI = "mysql://mysql:mysql@localhost:5441/"
 
@@ -23,17 +23,17 @@ def _store_pymysql():
     database = f"test_{uuid4().hex[:16]}"
 
     # create unique db
-    with pymysql.connect(**PyMySQLStore.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
+    with pymysql.connect(**PyOceanBaseStore.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
         with conn.cursor() as cursor:
             cursor.execute(f"CREATE DATABASE {database}")
     try:
         # yield store
-        with PyMySQLStore.from_conn_string(DEFAULT_MYSQL_URI + database) as store:
+        with PyOceanBaseStore.from_conn_string(DEFAULT_MYSQL_URI + database) as store:
             store.setup()
             yield store
     finally:
         # drop unique db
-        with pymysql.connect(**PyMySQLStore.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
+        with pymysql.connect(**PyOceanBaseStore.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
             with conn.cursor() as cursor:
                 cursor.execute(f"DROP DATABASE {database}")
 
@@ -43,18 +43,18 @@ def _store_pymysql_pool():
     database = f"test_{uuid4().hex[:16]}"
 
     # create unique db
-    with pymysql.connect(**PyMySQLStore.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
+    with pymysql.connect(**PyOceanBaseStore.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
         with conn.cursor() as cursor:
             cursor.execute(f"CREATE DATABASE {database}")
     try:
         # yield store
         engine = get_pymysql_sqlalchemy_engine(DEFAULT_MYSQL_URI + database)
-        store = PyMySQLStore(engine.raw_connection)
+        store = PyOceanBaseStore(engine.raw_connection)
         store.setup()
         yield store
     finally:
         # drop unique db
-        with pymysql.connect(**PyMySQLStore.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
+        with pymysql.connect(**PyOceanBaseStore.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
             with conn.cursor() as cursor:
                 cursor.execute(f"DROP DATABASE {database}")
 

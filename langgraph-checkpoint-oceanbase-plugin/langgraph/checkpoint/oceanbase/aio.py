@@ -9,9 +9,9 @@ from typing import Any, cast
 import aiomysql  # type: ignore
 from typing_extensions import Self, override
 
-from langgraph.checkpoint.mysql import _ainternal
-from langgraph.checkpoint.mysql.aio_base import BaseAsyncMySQLSaver
-from langgraph.checkpoint.mysql.shallow import BaseShallowAsyncMySQLSaver
+from langgraph.checkpoint.oceanbase import _ainternal
+from langgraph.checkpoint.oceanbase.aio_base import BaseAsyncMySQLSaver
+from langgraph.checkpoint.oceanbase.shallow import BaseShallowAsyncMySQLSaver
 from langgraph.checkpoint.serde.base import SerializerProtocol
 
 Conn = _ainternal.Conn[aiomysql.Connection]  # For backward compatibility
