@@ -14,8 +14,9 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md)           | Data Analysis      | Enables Trino to connect to OceanBase (MySQL/Oracle mode)                              |
 | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md)   | Content Management | Fixes compatibility issues between WordPress and OceanBase MySQL tenants               |
 | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) | Development Tools  | VSCode extension for quick access to OceanBase SQL keywords documentation              |
-| [Metabase OceanBase Plugin](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md)     | Data Visualization | Enables Metabase to connect to OceanBase (MySQL/Oracle mode)                           |
+| [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)     | Data Visualization | Enables Metabase to connect to OceanBase (MySQL/Oracle mode)                           |
 | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM         | SQLAlchemy dialect for OceanBase Oracle mode, compatible with SQLAlchemy 1.3+ and 2.0+ |
+| [OceanBase Dify Plugin](./oceanbase-dify-plugins/README.md)             | AI Applications    | Enables secure SQL query execution on OceanBase databases through Dify applications     |
 
 ---
 
@@ -57,7 +58,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 - **Function**: Enables Metabase to connect to OceanBase (MySQL/Oracle mode) with automatic compatibility mode detection and SQL syntax adaptation.
 - **Use Case**: Data analysis and visualization using Metabase connected to OceanBase databases.
-- **Documentation**: [Metabase OceanBase Plugin](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md)
+- **Documentation**: [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)
 
 ---
 
@@ -69,6 +70,14 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 ---
 
+### ✅ OceanBase Dify Plugin
+
+- **Function**: A simple OceanBase database plugin that enables secure SQL query execution on OceanBase databases through Dify applications with comprehensive error handling and result formatting.
+- **Use Case**: AI applications that need to interact with OceanBase databases through Dify platform for data querying and manipulation.
+- **Documentation**: [OceanBase Dify Plugin](./oceanbase-dify-plugins/README.md)
+
+---
+
 ## 📚 Full Documentation Links
 
 | Plugin Name                 | Documentation Link                                                  |
@@ -77,8 +86,9 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | Trino OceanBase Plugin      | [Trino OceanBase Plugin](./trino-oceanbase-plugin/README.md)           |
 | WordPress OceanBase Plugin  | [WordPress OceanBase Plugin](./wordpress-oceanbase-plugin/README.md)   |
 | OceanBase SQL Helper Plugin | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) |
-| Metabase OceanBase Plugin   | [Metabase OceanBase Plugin](https://github.com/xxsc0529/metabase/blob/90aa386bf6d9050dec00ce88da401b69c9bb544e/README.md)     |
+| Metabase OceanBase Plugin   | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)     |
 | OceanBase SQLAlchemy Plugin | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) |
+| OceanBase Dify Plugin       | [OceanBase Dify Plugin](./oceanbase-dify-plugins/README.md)             |
 
 ---
 
