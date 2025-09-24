@@ -15,7 +15,7 @@ from langgraph.store.base import (
     PutOp,
     SearchOp,
 )
-from langgraph.store.mysql import PyMySQLStore
+from langgraph.store.oceanbase import PyOceanBasetore
 from tests.conftest import (
     DEFAULT_BASE_URI,
     DEFAULT_URI,
@@ -33,38 +33,38 @@ STORES = [
 
 
 @pytest.fixture(scope="function", params=STORES)
-def store(request) -> PyMySQLStore:
+def store(request) -> PyOceanBaseStore:
     database = f"test_{uuid4().hex[:16]}"
 
     with pymysql.connect(
-        **PyMySQLStore.parse_conn_string(DEFAULT_BASE_URI),
+        **PyOceanBaseStore.parse_conn_string(DEFAULT_BASE_URI),
         autocommit=True,
     ) as conn:
         with conn.cursor() as cursor:
             cursor.execute(f"CREATE DATABASE {database}")
     try:
-        with PyMySQLStore.from_conn_string(DEFAULT_BASE_URI + database) as store:
+        with PyOceanBaseStore.from_conn_string(DEFAULT_BASE_URI + database) as store:
             store.setup()
 
         if request.param == "sqlalchemy_engine":
             engine = get_pymysql_sqlalchemy_engine(DEFAULT_BASE_URI + database)
-            yield PyMySQLStore(engine.raw_connection)
+            yield PyOceanBaseStore(engine.raw_connection)
         elif request.param == "sqlalchemy_pool":
             pool = get_pymysql_sqlalchemy_pool(DEFAULT_BASE_URI + database)
-            yield PyMySQLStore(pool.connect)
+            yield PyOceanBaseStore(pool.connect)
         else:  # default
-            with PyMySQLStore.from_conn_string(DEFAULT_BASE_URI + database) as store:
+            with PyOceanBaseStore.from_conn_string(DEFAULT_BASE_URI + database) as store:
                 yield store
     finally:
         with pymysql.connect(
-            **PyMySQLStore.parse_conn_string(DEFAULT_BASE_URI),
+            **PyOceanBaseStore.parse_conn_string(DEFAULT_BASE_URI),
             autocommit=True,
         ) as conn:
             with conn.cursor() as cursor:
                 cursor.execute(f"DROP DATABASE {database}")
 
 
-def test_batch_order(store: PyMySQLStore) -> None:
+def test_batch_order(store: PyOceanBaseStore) -> None:
     # Setup test data
     store.put(("test", "foo"), "key1", {"data": "value1"})
     store.put(("test", "bar"), "key2", {"data": "value2"})
@@ -116,7 +116,7 @@ def test_batch_order(store: PyMySQLStore) -> None:
     assert results_reordered[4].key == "key1"
 
 
-def test_batch_get_ops(store: PyMySQLStore) -> None:
+def test_batch_get_ops(store: PyOceanBaseStore) -> None:
     # Setup test data
     store.put(("test",), "key1", {"data": "value1"})
     store.put(("test",), "key2", {"data": "value2"})
@@ -137,7 +137,7 @@ def test_batch_get_ops(store: PyMySQLStore) -> None:
     assert results[1].key == "key2"
 
 
-def test_batch_put_ops(store: PyMySQLStore) -> None:
+def test_batch_put_ops(store: PyOceanBaseStore) -> None:
     ops = [
         PutOp(namespace=("test",), key="key1", value={"data": "value1"}),
         PutOp(namespace=("test",), key="key2", value={"data": "value2"}),
@@ -158,7 +158,7 @@ def test_batch_put_ops(store: PyMySQLStore) -> None:
     assert item3 is None
 
 
-def test_batch_search_ops(store: PyMySQLStore) -> None:
+def test_batch_search_ops(store: PyOceanBaseStore) -> None:
     # Setup test data
     test_data = [
         (("test", "foo"), "key1", {"data": "value1", "tag": "a"}),
@@ -189,7 +189,7 @@ def test_batch_search_ops(store: PyMySQLStore) -> None:
     assert results[2][0].namespace == ("test", "foo")
 
 
-def test_batch_list_namespaces_ops(store: PyMySQLStore) -> None:
+def test_batch_list_namespaces_ops(store: PyOceanBaseStore) -> None:
     # Setup test data with various namespaces
     test_data = [
         (("test", "documents", "public"), "doc1", {"content": "public doc"}),
@@ -224,14 +224,14 @@ def test_batch_list_namespaces_ops(store: PyMySQLStore) -> None:
     assert all(ns[-1] == "public" for ns in results[2])
 
 
-class TestPyMySQLStore:
+class TestPyOceanBaseStore:
     @pytest.fixture(autouse=True)
     def setup(self) -> None:
-        with PyMySQLStore.from_conn_string(DEFAULT_URI) as store:
+        with PyOceanBaseStore.from_conn_string(DEFAULT_URI) as store:
             store.setup()
 
     def test_basic_store_ops(self) -> None:
-        with PyMySQLStore.from_conn_string(DEFAULT_URI) as store:
+        with PyOceanBaseStore.from_conn_string(DEFAULT_URI) as store:
             namespace = ("test", "documents")
             item_id = "doc1"
             item_value = {"title": "Test Document", "content": "Hello, World!"}
@@ -264,7 +264,7 @@ class TestPyMySQLStore:
             assert deleted_item is None
 
     def test_list_namespaces(self) -> None:
-        with PyMySQLStore.from_conn_string(DEFAULT_URI) as store:
+        with PyOceanBaseStore.from_conn_string(DEFAULT_URI) as store:
             # Create test data with various namespaces
             test_namespaces = [
                 ("test", "documents", "public"),
@@ -306,7 +306,7 @@ class TestPyMySQLStore:
                 store.delete(namespace, "dummy")
 
     def test_search(self) -> None:
-        with PyMySQLStore.from_conn_string(DEFAULT_URI) as store:
+        with PyOceanBaseStore.from_conn_string(DEFAULT_URI) as store:
             # Create test data
             test_data = [
                 (
@@ -357,6 +357,6 @@ class TestPyMySQLStore:
 
 def test_nonnull_migrations() -> None:
     _leading_comment_remover = re.compile(r"^/\*.*?\*/")
-    for migration in PyMySQLStore.MIGRATIONS:
+    for migration in PyOceanBaseStore.MIGRATIONS:
         statement = _leading_comment_remover.sub("", migration).split()[0]
         assert statement.strip()

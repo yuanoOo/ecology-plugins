@@ -6,9 +6,9 @@ import asyncmy
 import pymysql
 from sqlalchemy import Engine, create_engine
 
-from langgraph.checkpoint.mysql.aio import AIOMySQLSaver
-from langgraph.checkpoint.mysql.asyncmy import AsyncMySaver
-from langgraph.checkpoint.mysql.pymysql import PyMySQLSaver
+from langgraph.checkpoint.oceanbase.aio import AIOMySQLSaver
+from langgraph.checkpoint.oceanbase.asyncmy import AsyncMySaver
+from langgraph.checkpoint.oceanbase.pyoceanbase import PyOceanBaseSaver
 
 DEFAULT_MYSQL_URI = "mysql://mysql:mysql@localhost:5441/"
 
@@ -23,19 +23,19 @@ def _checkpointer_pymysql():
     database = f"test_{uuid4().hex[:16]}"
 
     # create unique db
-    with pymysql.connect(**PyMySQLSaver.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
+    with pymysql.connect(**PyOceanBaseSaver.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
         with conn.cursor() as cursor:
             cursor.execute(f"CREATE DATABASE {database}")
     try:
         # yield checkpointer
-        with PyMySQLSaver.from_conn_string(
+        with PyOceanBaseSaver.from_conn_string(
             DEFAULT_MYSQL_URI + database
         ) as checkpointer:
             checkpointer.setup()
             yield checkpointer
     finally:
         # drop unique db
-        with pymysql.connect(**PyMySQLSaver.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
+        with pymysql.connect(**PyOceanBaseSaver.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
             with conn.cursor() as cursor:
                 cursor.execute(f"DROP DATABASE {database}")
 
@@ -45,17 +45,17 @@ def _checkpointer_pymysql_pool():
     database = f"test_{uuid4().hex[:16]}"
 
     # create unique db
-    with pymysql.connect(**PyMySQLSaver.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
+    with pymysql.connect(**PyOceanBaseSaver.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
         with conn.cursor() as cursor:
             cursor.execute(f"CREATE DATABASE {database}")
     try:
         pool = get_pymysql_sqlalchemy_engine(DEFAULT_MYSQL_URI + database)
-        checkpointer = PyMySQLSaver(pool.raw_connection)
+        checkpointer = PyOceanBaseSaver(pool.raw_connection)
         checkpointer.setup()
         yield checkpointer
     finally:
         # drop unique db
-        with pymysql.connect(**PyMySQLSaver.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
+        with pymysql.connect(**PyOceanBaseSaver.parse_conn_string(DEFAULT_MYSQL_URI), autocommit=True) as conn:
             with conn.cursor() as cursor:
                 cursor.execute(f"DROP DATABASE {database}")
 

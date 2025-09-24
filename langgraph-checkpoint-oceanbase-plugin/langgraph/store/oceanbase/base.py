@@ -20,9 +20,9 @@ from typing import (
 import orjson
 from typing_extensions import TypedDict
 
-from langgraph.checkpoint.mysql import _ainternal as _ainternal
-from langgraph.checkpoint.mysql import _internal as _internal
-from langgraph.checkpoint.mysql.utils import mysql_mariadb_branch
+from langgraph.checkpoint.oceanbase import _ainternal as _ainternal
+from langgraph.checkpoint.oceanbase import _internal as _internal
+from langgraph.checkpoint.oceanbase.utils import mysql_mariadb_branch
 from langgraph.store.base import (
     BaseStore,
     GetOp,

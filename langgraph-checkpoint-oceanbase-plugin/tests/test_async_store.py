@@ -10,9 +10,9 @@ import asyncmy
 import pytest
 
 from langgraph.store.base import GetOp, Item, ListNamespacesOp, PutOp, SearchOp
-from langgraph.store.mysql.aio import AIOMySQLStore
-from langgraph.store.mysql.aio_base import BaseAsyncMySQLStore
-from langgraph.store.mysql.asyncmy import AsyncMyStore
+from langgraph.store.oceanbase.aio import AIOMySQLStore
+from langgraph.store.oceanbase.aio_base import BaseAsyncMySQLStore
+from langgraph.store.oceanbase.asyncmy import AsyncMyStore
 from tests.conftest import DEFAULT_BASE_URI
 
 pytestmark = pytest.mark.anyio

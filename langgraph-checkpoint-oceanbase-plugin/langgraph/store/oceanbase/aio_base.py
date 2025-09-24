@@ -8,7 +8,7 @@ from typing import Any, Callable, Generic, cast
 
 import orjson
 
-from langgraph.checkpoint.mysql import _ainternal
+from langgraph.checkpoint.oceanbase import _ainternal
 from langgraph.store.base import (
     GetOp,
     ListNamespacesOp,
@@ -18,7 +18,7 @@ from langgraph.store.base import (
     SearchOp,
 )
 from langgraph.store.base.batch import AsyncBatchedBaseStore
-from langgraph.store.mysql.base import (
+from langgraph.store.oceanbase.base import (
     BaseMySQLStore,
     Row,
     _decode_ns_bytes,

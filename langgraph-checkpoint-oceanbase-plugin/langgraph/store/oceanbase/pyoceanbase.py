@@ -7,10 +7,10 @@ import pymysql
 from pymysql.cursors import DictCursor
 from typing_extensions import Self, override
 
-from langgraph.store.mysql.base import BaseSyncMySQLStore
+from langgraph.store.oceanbase.base import BaseSyncMySQLStore
 
 
-class PyMySQLStore(BaseSyncMySQLStore[pymysql.Connection, DictCursor]):
+class PyOceanBaseStore(BaseSyncMySQLStore[pymysql.Connection, DictCursor]):
     @staticmethod
     def parse_conn_string(conn_string: str) -> dict[str, Any]:
         parsed = urllib.parse.urlparse(conn_string)
@@ -35,13 +35,13 @@ class PyMySQLStore(BaseSyncMySQLStore[pymysql.Connection, DictCursor]):
         cls,
         conn_string: str,
     ) -> Iterator[Self]:
-        """Create a new PyMySQLStore instance from a connection string.
+        """Create a new PyOceanBaseStore instance from a connection string.
 
         Args:
             conn_string: The MySQL connection info string.
 
         Returns:
-            PyMySQLStore: A new PyMySQLStore instance.
+            PyOceanBaseStore: A new PyOceanBaseStore instance.
         """
         with pymysql.connect(
             **cls.parse_conn_string(conn_string),

@@ -18,9 +18,9 @@ from langgraph.checkpoint.base import (
     get_checkpoint_id,
     get_checkpoint_metadata,
 )
-from langgraph.checkpoint.mysql import _ainternal
-from langgraph.checkpoint.mysql.base import BaseMySQLSaver
-from langgraph.checkpoint.mysql.utils import (
+from langgraph.checkpoint.oceanbase import _ainternal
+from langgraph.checkpoint.oceanbase.base import BaseMySQLSaver
+from langgraph.checkpoint.oceanbase.utils import (
     deserialize_channel_values,
     deserialize_pending_sends,
     deserialize_pending_writes,

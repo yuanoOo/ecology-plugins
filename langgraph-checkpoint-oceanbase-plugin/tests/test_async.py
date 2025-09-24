@@ -20,10 +20,10 @@ from langgraph.checkpoint.base import (
     create_checkpoint,
     empty_checkpoint,
 )
-from langgraph.checkpoint.mysql.aio import AIOMySQLSaver, ShallowAIOMySQLSaver
-from langgraph.checkpoint.mysql.aio_base import BaseAsyncMySQLSaver
-from langgraph.checkpoint.mysql.asyncmy import AsyncMySaver, ShallowAsyncMySaver
-from langgraph.checkpoint.mysql.shallow import BaseShallowAsyncMySQLSaver
+from langgraph.checkpoint.oceanbase.aio import AIOMySQLSaver, ShallowAIOMySQLSaver
+from langgraph.checkpoint.oceanbase.aio_base import BaseAsyncMySQLSaver
+from langgraph.checkpoint.oceanbase.asyncmy import AsyncMySaver, ShallowAsyncMySaver
+from langgraph.checkpoint.oceanbase.shallow import BaseShallowAsyncMySQLSaver
 from langgraph.checkpoint.serde.types import TASKS
 from langgraph.graph import END, START, MessagesState, StateGraph
 from tests.conftest import DEFAULT_BASE_URI

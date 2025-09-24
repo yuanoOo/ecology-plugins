@@ -18,9 +18,9 @@ from langgraph.checkpoint.base import (
     get_checkpoint_id,
     get_checkpoint_metadata,
 )
-from langgraph.checkpoint.mysql import _internal
-from langgraph.checkpoint.mysql.base import BaseMySQLSaver
-from langgraph.checkpoint.mysql.utils import (
+from langgraph.checkpoint.oceanbase import _internal
+from langgraph.checkpoint.oceanbase.base import BaseMySQLSaver
+from langgraph.checkpoint.oceanbase.utils import (
     deserialize_channel_values,
     deserialize_pending_sends,
     deserialize_pending_writes,
@@ -115,7 +115,7 @@ class BaseSyncMySQLSaver(BaseMySQLSaver, Generic[_internal.C, _internal.R]):
             Iterator[CheckpointTuple]: An iterator of checkpoint tuples.
 
         Examples:
-            >>> from langgraph.checkpoint.mysql import PyMySQLSaver
+            >>> from langgraph.checkpoint.oceanbase import PyOceanBaseSaver
             >>> DB_URI = "mysql://mysql:mysql@localhost:5432/mysql"
             >>> with PyMySQLSaver.from_conn_string(DB_URI) as memory:
             ... # Run a graph, then list the checkpoints
@@ -284,9 +284,9 @@ class BaseSyncMySQLSaver(BaseMySQLSaver, Generic[_internal.C, _internal.R]):
 
         Examples:
 
-            >>> from langgraph.checkpoint.mysql import PyMySQLSaver
+            >>> from langgraph.checkpoint.oceanbase import PyOceanBaseSaver
             >>> DB_URI = "mysql://mysql:mysql@localhost:5432/mysql"
-            >>> with PyMySQLSaver.from_conn_string(DB_URI) as memory:
+            >>> with PyOceanBaseSaver.from_conn_string(DB_URI) as memory:
             >>>     config = {"configurable": {"thread_id": "1", "checkpoint_ns": ""}}
             >>>     checkpoint = {"ts": "2024-05-04T06:32:42.235444+00:00", "id": "1ef4f797-8335-6428-8001-8a1503f9b875", "channel_values": {"key": "value"}}
             >>>     saved_config = memory.put(config, checkpoint, {"source": "input", "step": 1, "writes": {"key": "value"}}, {})

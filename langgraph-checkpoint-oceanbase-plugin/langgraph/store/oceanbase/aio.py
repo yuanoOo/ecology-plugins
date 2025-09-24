@@ -4,16 +4,15 @@ from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from typing import Any, cast
 
-from asyncmy import Connection, connect  # type: ignore
-from asyncmy.cursors import DictCursor  # type: ignore
+import aiomysql  # type: ignore
 from typing_extensions import Self, override
 
-from langgraph.store.mysql.aio_base import BaseAsyncMySQLStore
+from langgraph.store.oceanbase.aio_base import BaseAsyncMySQLStore
 
 logger = logging.getLogger(__name__)
 
 
-class AsyncMyStore(BaseAsyncMySQLStore[Connection, DictCursor]):
+class AIOMySQLStore(BaseAsyncMySQLStore[aiomysql.Connection, aiomysql.DictCursor]):
     @staticmethod
     def parse_conn_string(conn_string: str) -> dict[str, Any]:
         parsed = urllib.parse.urlparse(conn_string)
@@ -38,15 +37,15 @@ class AsyncMyStore(BaseAsyncMySQLStore[Connection, DictCursor]):
         cls,
         conn_string: str,
     ) -> AsyncIterator[Self]:
-        """Create a new AsyncMyStore instance from a connection string.
+        """Create a new AIOMySQLStore instance from a connection string.
 
         Args:
             conn_string: The MySQL connection info string.
 
         Returns:
-            AsyncMyStore: A new AsyncMyStore instance.
+            AIOMySQLStore: A new AIOMySQLStore instance.
         """
-        async with connect(
+        async with aiomysql.connect(
             **cls.parse_conn_string(conn_string),
             autocommit=True,
         ) as conn:
@@ -54,5 +53,5 @@ class AsyncMyStore(BaseAsyncMySQLStore[Connection, DictCursor]):
 
     @override
     @staticmethod
-    def _get_cursor_from_connection(conn: Connection) -> DictCursor:
-        return cast(DictCursor, conn.cursor(DictCursor))
+    def _get_cursor_from_connection(conn: aiomysql.Connection) -> aiomysql.DictCursor:
+        return cast(aiomysql.DictCursor, conn.cursor(aiomysql.DictCursor))

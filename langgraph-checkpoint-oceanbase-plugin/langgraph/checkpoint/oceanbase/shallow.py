@@ -17,9 +17,9 @@ from langgraph.checkpoint.base import (
     CheckpointTuple,
     get_checkpoint_metadata,
 )
-from langgraph.checkpoint.mysql import _ainternal, _internal
-from langgraph.checkpoint.mysql.base import BaseMySQLSaver
-from langgraph.checkpoint.mysql.utils import (
+from langgraph.checkpoint.oceanbase import _ainternal, _internal
+from langgraph.checkpoint.oceanbase.base import BaseMySQLSaver
+from langgraph.checkpoint.oceanbase.utils import (
     deserialize_channel_values,
     deserialize_pending_sends,
     deserialize_pending_writes,
@@ -432,7 +432,7 @@ class BaseShallowSyncMySQLSaver(BaseMySQLSaver, Generic[_internal.C, _internal.R
 
         Examples:
 
-            >>> from langgraph.checkpoint.mysql import PyMySQLSaver
+            >>> from langgraph.checkpoint.oceanbase import PyOceanBaseSaver
             >>> DB_URI = "mysql://mysql:mysql@localhost:5432/mysql"
             >>> with ShallowPyMySQLSaver.from_conn_string(DB_URI) as memory:
             >>>     config = {"configurable": {"thread_id": "1", "checkpoint_ns": ""}}

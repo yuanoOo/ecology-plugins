@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "langgraph-checkpoint-oceanbase"
-version = "2.0.17"
+version = "2.0.18"
 description = "Library with a OceanBase MySQL Mode implementation of LangGraph checkpoint saver."
 authors = [{ name = "David Zhang" }]
 requires-python = ">=3.9"
