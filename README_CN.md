@@ -20,7 +20,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM  | SQLAlchemy 方言，支持 OceanBase Oracle 模式，兼容 SQLAlchemy 1.3+ 和 2.0+ |
 | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md) | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver |
 | [OceanBase Dify 插件](./oceanbase-dify-plugins/README_CN.md)         | AI 应用     | 通过 Dify 应用程序在 OceanBase 数据库上安全执行 SQL 查询 |
-
+| [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md) | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver |
 ------
 
 ## 📁 插件详情
@@ -89,6 +89,15 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 
 ------
 
+### ✅ LangGraph Checkpoint OceanBase 插件
+
+- **功能**：使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver。
+- **适用场景**：使用 OceanBase 作为 LangGraph 的 Checkpointer。
+- **详细文档**：[LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md)
+
+------
+
+
 ## 📚 完整文档链接
 
 | 插件名称                    | 文档链接                                                     |
@@ -101,6 +110,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | OceanBase SQLAlchemy 插件   | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) |
 | LangGraph Checkpoint OceanBase 插件   | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md) |
 | OceanBase Dify 插件         | [OceanBase Dify 插件](./oceanbase-dify-plugins/README_CN.md) |
+| LangGraph Checkpoint OceanBase 插件   | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md) |
 
 ------
 
