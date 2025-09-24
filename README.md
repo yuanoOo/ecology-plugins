@@ -17,6 +17,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)     | Data Visualization | Enables Metabase to connect to OceanBase (MySQL/Oracle mode)                           |
 | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM         | SQLAlchemy dialect for OceanBase Oracle mode, compatible with SQLAlchemy 1.3+ and 2.0+ |
 | [OceanBase Dify Plugin](./oceanbase-dify-plugins/README.md)             | AI Applications    | Enables secure SQL query execution on OceanBase databases through Dify applications     |
+| [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md) | LangGraph CheckpointSaver| Implementation of LangGraph CheckpointSaver that uses OceanBase MySQL mode|
 
 ---
 
@@ -78,6 +79,16 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 ---
 
+
+### ✅ LangGraph Checkpoint OceanBase Plugin
+
+- **Function**: OceanBase MySQL mode can be used as LangGraph's CheckpointSaver to preserve both short-term and long-term memory.
+- **Use Case**: Using OceanBase as LangGraph's Checkpointer.
+- **Documentation**: [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md)
+
+---
+
+
 ## 📚 Full Documentation Links
 
 | Plugin Name                 | Documentation Link                                                  |
@@ -89,6 +100,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | Metabase OceanBase Plugin   | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)     |
 | OceanBase SQLAlchemy Plugin | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) |
 | OceanBase Dify Plugin       | [OceanBase Dify Plugin](./oceanbase-dify-plugins/README.md)             |
+| LangGraph Checkpoint OceanBase Plugin | [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md) |
 
 ---
 
