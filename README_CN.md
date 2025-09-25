@@ -19,7 +19,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)  | 数据可视化 | 支持 Metabase 连接 OceanBase（MySQL/Oracle 模式）  |
 | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM  | SQLAlchemy 方言，支持 OceanBase Oracle 模式，兼容 SQLAlchemy 1.3+ 和 2.0+ |
 | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md) | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver |
-| [OceanBase Dify 插件](./oceanbase-dify-plugins/README_CN.md)         | AI 应用     | 通过 Dify 应用程序在 OceanBase 数据库上安全执行 SQL 查询 |
+| [OceanBase Dify 插件](./dify-plugin-oceanbase/README_CN.md)         | AI 应用     | 通过 Dify 应用程序在 OceanBase 数据库上安全执行 SQL 查询 |
 | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md) | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver |
 ------
 
@@ -83,9 +83,10 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 
 ### ✅ OceanBase Dify 插件
 
-- **功能**：一个简单的 OceanBase 数据库插件，通过 Dify 应用程序在 OceanBase 数据库上安全执行 SQL 查询，具有全面的错误处理和结果格式化功能。
+- **功能**：用于连接和查询 OceanBase 数据库的 Dify 插件。此项目已迁移到新仓库。
 - **适用场景**：需要通过 Dify 平台与 OceanBase 数据库交互进行数据查询和操作的 AI 应用程序。
-- **详细文档**：[OceanBase Dify 插件](./oceanbase-dify-plugins/README_CN.md)
+- **详细文档**：[OceanBase Dify 插件](./dify-plugin-oceanbase/README_CN.md)
+- **新仓库地址**：https://github.com/oceanbase/dify-plugin-oceanbase
 
 ------
 
@@ -109,7 +110,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 | Metabase OceanBase 插件     | [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md) |
 | OceanBase SQLAlchemy 插件   | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) |
 | LangGraph Checkpoint OceanBase 插件   | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md) |
-| OceanBase Dify 插件         | [OceanBase Dify 插件](./oceanbase-dify-plugins/README_CN.md) |
+| OceanBase Dify 插件         | [OceanBase Dify 插件](./dify-plugin-oceanbase/README_CN.md) |
 | LangGraph Checkpoint OceanBase 插件   | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md) |
 
 ------
