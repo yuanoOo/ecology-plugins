@@ -1,7 +1,5 @@
 # OceanBase Dify Plugin
 
-> **Note**: This project has been migrated to a new repository. Please use the new repository address.
-
 ## 🔗 Repository Address
 
 **GitHub**: https://github.com/oceanbase/dify-plugin-oceanbase

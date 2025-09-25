@@ -1,7 +1,5 @@
 # OceanBase Dify 插件
 
-> **注意**: 此项目已迁移到新的仓库。请使用新的仓库地址。
-
 ## 🔗 仓库地址
 
 **GitHub**: https://github.com/oceanbase/dify-plugin-oceanbase
