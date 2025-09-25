@@ -16,7 +16,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) | Development Tools  | VSCode extension for quick access to OceanBase SQL keywords documentation              |
 | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)     | Data Visualization | Enables Metabase to connect to OceanBase (MySQL/Oracle mode)                           |
 | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM         | SQLAlchemy dialect for OceanBase Oracle mode, compatible with SQLAlchemy 1.3+ and 2.0+ |
-| [OceanBase Dify Plugin](./oceanbase-dify-plugins/README.md)             | AI Applications    | Enables secure SQL query execution on OceanBase databases through Dify applications     |
+| [OceanBase Dify Plugin](./dify-plugin-oceanbase/README.md)             | AI Applications    | Enables secure SQL query execution on OceanBase databases through Dify applications     |
 | [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md) | LangGraph CheckpointSaver| Implementation of LangGraph CheckpointSaver that uses OceanBase MySQL mode|
 
 ---
@@ -73,9 +73,10 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 
 ### ✅ OceanBase Dify Plugin
 
-- **Function**: A simple OceanBase database plugin that enables secure SQL query execution on OceanBase databases through Dify applications with comprehensive error handling and result formatting.
+- **Function**: A Dify plugin for connecting to and querying OceanBase databases. This project has been migrated to a new repository.
 - **Use Case**: AI applications that need to interact with OceanBase databases through Dify platform for data querying and manipulation.
-- **Documentation**: [OceanBase Dify Plugin](./oceanbase-dify-plugins/README.md)
+- **Documentation**: [OceanBase Dify Plugin](./dify-plugin-oceanbase/README.md)
+- **New Repository**: https://github.com/oceanbase/dify-plugin-oceanbase
 
 ---
 
@@ -99,7 +100,7 @@ OceanBase is a high-performance database compatible with both MySQL and Oracle p
 | OceanBase SQL Helper Plugin | [OceanBase SQL Helper Plugin](./oceanbase-sql-helper-plugin/README.md) |
 | Metabase OceanBase Plugin   | [Metabase OceanBase Plugin](./metabase-oceanbase-plugin/README.md)     |
 | OceanBase SQLAlchemy Plugin | [OceanBase SQLAlchemy Plugin](./oceanbase-sqlalchemy-plugin/README.md) |
-| OceanBase Dify Plugin       | [OceanBase Dify Plugin](./oceanbase-dify-plugins/README.md)             |
+| OceanBase Dify Plugin       | [OceanBase Dify Plugin](./dify-plugin-oceanbase/README.md)             |
 | LangGraph Checkpoint OceanBase Plugin | [LangGraph Checkpoint OceanBase Plugin](./langgraph-checkpoint-oceanbase-plugin/README.md) |
 
 ---
