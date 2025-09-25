@@ -2,7 +2,7 @@
 
 本仓库包含多个插件，旨在解决 **OceanBase** 与不同框架/工具（如 Flyway、Trino、WordPressd等）之间的兼容性问题。每个插件针对特定场景优化，确保数据库操作的稳定性与高效性。
 
-------
+---
 
 ## 🧩 项目概述
 
@@ -10,18 +10,19 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 
 全屏复制
 
-| 插件名称                                                                                                       | 适用场景   | 主要功能                                           |
-|------------------------------------------------------------------------------------------------------------| ---------- | -------------------------------------------------- |
-| [Flyway OceanBase 插件](./flyway-oceanbase-plugin/README_CN.md)      | 数据库迁移 | 解决 Flyway 在 OceanBase MySQL 模式下的兼容性问题  |
-| [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md)        | 数据分析   | 支持 Trino 连接 OceanBase（MySQL/Oracle 模式）     |
-| [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) | 内容管理   | 修复 WordPress 与 OceanBase MySQL 租户的兼容性问题 |
-| [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) | 开发工具   | VSCode 插件，快速访问 OceanBase SQL 关键词文档     |
-| [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)  | 数据可视化 | 支持 Metabase 连接 OceanBase（MySQL/Oracle 模式）  |
-| [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) | Python ORM  | SQLAlchemy 方言，支持 OceanBase Oracle 模式，兼容 SQLAlchemy 1.3+ 和 2.0+ |
-| [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md) | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver |
-| [OceanBase Dify 插件](./dify-plugin-oceanbase/README_CN.md)         | AI 应用     | 通过 Dify 应用程序在 OceanBase 数据库上安全执行 SQL 查询 |
-| [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md) | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver |
-------
+| 插件名称                                                                                 | 适用场景                     | 主要功能                                                                  |
+| ---------------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------- |
+| [Flyway OceanBase 插件](./flyway-oceanbase-plugin/README_CN.md)                             | 数据库迁移                   | 解决 Flyway 在 OceanBase MySQL 模式下的兼容性问题                         |
+| [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md)                               | 数据分析                     | 支持 Trino 连接 OceanBase（MySQL/Oracle 模式）                            |
+| [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md)                       | 内容管理                     | 修复 WordPress 与 OceanBase MySQL 租户的兼容性问题                        |
+| [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md)                        | 开发工具                     | VSCode 插件，快速访问 OceanBase SQL 关键词文档                            |
+| [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)                         | 数据可视化                   | 支持 Metabase 连接 OceanBase（MySQL/Oracle 模式）                         |
+| [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md)                        | Python ORM                   | SQLAlchemy 方言，支持 OceanBase Oracle 模式，兼容 SQLAlchemy 1.3+ 和 2.0+ |
+| [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md)    | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver                 |
+| [OceanBase Dify 插件](./dify-plugin-oceanbase/README_CN.md)                                 | AI 应用                      | 通过 Dify 应用程序在 OceanBase 数据库上安全执行 SQL 查询                  |
+| [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md) | 保存 LangGraph 的 checkpoint | 使用 OceanBase MySQL 模式实现了 LangGraph CheckpointSaver                 |
+
+---
 
 ## 📁 插件详情
 
@@ -31,7 +32,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 - **适用场景**：使用 Flyway 管理 OceanBase MySQL 模式的数据库迁移。
 - **详细文档**：[Flyway OceanBase 插件](./flyway-oceanbase-plugin/README_CN.md)
 
-------
+---
 
 ### ✅ Trino OceanBase 插件
 
@@ -39,7 +40,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 - **适用场景**：通过 Trino 查询 OceanBase 数据库（支持多模式）。
 - **详细文档**：[Trino OceanBase 插件](./trion-oceanbase-plugin/README_CN.md)
 
-------
+---
 
 ### ✅ WordPress OceanBase 插件
 
@@ -47,7 +48,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 - **适用场景**：WordPress 部署在 OceanBase MySQL 租户时的兼容性适配。
 - **详细文档**：[WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md)
 
-------
+---
 
 ### ✅ OceanBase SQL 助手插件
 
@@ -55,7 +56,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 - **适用场景**：增强开发者在编写 OceanBase 数据库 SQL 查询时的开发体验。
 - **详细文档**：[OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md)
 
-------
+---
 
 ### ✅ Metabase OceanBase 插件
 
@@ -63,7 +64,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 - **适用场景**：使用 Metabase 进行数据分析和可视化，连接 OceanBase 数据库。
 - **详细文档**：[Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)
 
-------
+---
 
 ### ✅ OceanBase SQLAlchemy 插件
 
@@ -71,7 +72,7 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 - **适用场景**：使用 Python SQLAlchemy ORM 框架连接和操作 OceanBase Oracle 模式数据库。
 - **详细文档**：[OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md)
 
-------
+---
 
 ### ✅ LangGraph Checkpoint OceanBase 插件
 
@@ -79,16 +80,16 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 - **适用场景**：使用 OceanBase 作为 LangGraph 的 Checkpointer。
 - **详细文档**：[LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md)
 
-------
+---
 
 ### ✅ OceanBase Dify 插件
 
 - **功能**：用于连接和查询 OceanBase 数据库的 Dify 插件。此项目已迁移到新仓库。
 - **适用场景**：需要通过 Dify 平台与 OceanBase 数据库交互进行数据查询和操作的 AI 应用程序。
 - **详细文档**：[OceanBase Dify 插件](./dify-plugin-oceanbase/README_CN.md)
-- **新仓库地址**：https://github.com/oceanbase/dify-plugin-oceanbase
+- **仓库地址**：https://github.com/oceanbase/dify-plugin-oceanbase
 
-------
+---
 
 ### ✅ LangGraph Checkpoint OceanBase 插件
 
@@ -96,38 +97,37 @@ OceanBase 是一款兼容 MySQL 和 Oracle 协议的高性能数据库。本仓�
 - **适用场景**：使用 OceanBase 作为 LangGraph 的 Checkpointer。
 - **详细文档**：[LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md)
 
-------
-
+---
 
 ## 📚 完整文档链接
 
-| 插件名称                    | 文档链接                                                     |
-| --------------------------- | ------------------------------------------------------------ |
-| Flyway OceanBase MySQL 插件 | [Flyway OceanBase 插件](./flyway-oceanbase-plugin/README_CN.md) |
-| Trino OceanBase 插件        | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md) |
-| WordPress OceanBase 插件    | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md) |
-| OceanBase SQL 助手插件      | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md) |
-| Metabase OceanBase 插件     | [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md) |
-| OceanBase SQLAlchemy 插件   | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md) |
-| LangGraph Checkpoint OceanBase 插件   | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md) |
-| OceanBase Dify 插件         | [OceanBase Dify 插件](./dify-plugin-oceanbase/README_CN.md) |
-| LangGraph Checkpoint OceanBase 插件   | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md) |
+| 插件名称                            | 文档链接                                                                                 |
+| ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| Flyway OceanBase MySQL 插件         | [Flyway OceanBase 插件](./flyway-oceanbase-plugin/README_CN.md)                             |
+| Trino OceanBase 插件                | [Trino OceanBase 插件](./trino-oceanbase-plugin/README_CN.md)                               |
+| WordPress OceanBase 插件            | [WordPress OceanBase 插件](./wordpress-oceanbase-plugin/README_CN.md)                       |
+| OceanBase SQL 助手插件              | [OceanBase SQL 助手插件](./oceanbase-sql-helper-plugin/README_CN.md)                        |
+| Metabase OceanBase 插件             | [Metabase OceanBase 插件](./metabase-oceanbase-plugin/README_CN.md)                         |
+| OceanBase SQLAlchemy 插件           | [OceanBase SQLAlchemy 插件](./oceanbase-sqlalchemy-plugin/README.md)                        |
+| LangGraph Checkpoint OceanBase 插件 | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README.md)    |
+| OceanBase Dify 插件                 | [OceanBase Dify 插件](./dify-plugin-oceanbase/README_CN.md)                                 |
+| LangGraph Checkpoint OceanBase 插件 | [LangGraph Checkpoint OceanBase 插件](./langgraph-checkpoint-oceanbase-plugin/README_CN.md) |
 
-------
+---
 
 ## 🛠️ 贡献与反馈
 
 欢迎提交 Issues 或 Pull Request，帮助完善插件功能。
 
-- [GitHub Issues]( https://github.com/oceanbase/ecology-plugins/issues)
+- [GitHub Issues](https://github.com/oceanbase/ecology-plugins/issues)
 
-------
+---
 
 ## 📄 授权协议
 
 本项目采用 [Apache License 2.0](./LICENSE) 协议开源。
 
-------
+---
 
 ## 📌 注意事项
 
