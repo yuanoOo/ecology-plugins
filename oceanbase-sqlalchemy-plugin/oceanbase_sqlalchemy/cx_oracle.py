@@ -207,3 +207,7 @@ class OceanBaseDialect_cx_oracle(OracleDialect_cx_oracle):
                 dictionary.all_ind_columns.c.column_position,
             )
         )
+
+
+# Register dialect, similar to SQLAlchemy's cx_oracle.py
+dialect = OceanBaseDialect_cx_oracle
