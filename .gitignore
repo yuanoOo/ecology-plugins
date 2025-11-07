@@ -1,0 +1,11 @@
+git-pre-push-hook-ban.log
+.github/.DS_Store
+.github/workflows/.DS_Store
+.idea/.gitignore
+.idea/ecology-plugins.iml
+.idea/MarsCodeWorkspaceAppSettings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml

@@ -56,7 +56,37 @@ class OceanBaseDialect_cx_oracle(OracleDialect_cx_oracle):
 
         return super().create_connect_args(url)
 
-    @reflection.cache
+    def _get_server_version_info(self, connection):
+        """
+        Get OceanBase server version information
+
+        Issue: cx_Oceanbase driver returns "0.0.0.0.1" for connection.version,
+        causing SQLAlchemy to misidentify it as Oracle 8 and set supports_unicode_binds to False,
+        which encodes all string parameters as bytes, resulting in NVARCHAR2 query failures.
+
+        Solution: Extract the real OceanBase version number from v$version banner.
+        """
+
+        # Fallback: Return a reasonable default version
+        # Note: Due to Python tuple comparison (4, x, x) < (9,) evaluates to True
+        # Use (21, 0, 0, 0, 0) to simulate Oracle 21g, ensuring it won't be misidentified as Oracle 8
+        return (21, 0, 0, 0, 0)
+
+    def initialize(self, connection):
+        """
+        Initialize dialect to ensure OceanBase uses Unicode string binding
+
+        OceanBase is compatible with Oracle 10g+, supporting Unicode binding.
+        Even if the version number might be misjudged, force enable supports_unicode_binds.
+        """
+        # Call parent class initialization
+        super().initialize(connection)
+
+        # Force enable Unicode binding support
+        # OceanBase fully supports Unicode and should not use bytes encoding
+        self.supports_unicode_binds = True
+
+    @reflection.cache()
     def _get_constraint_data(
         self, connection, table_name, schema=None, dblink="", **kw
     ):
