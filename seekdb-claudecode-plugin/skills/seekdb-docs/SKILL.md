@@ -1,11 +1,11 @@
 ---
 name: seekdb-docs
-description: Provides documentation and knowledge base for SeekDB database.
+description: Provides documentation and knowledge base for seekdb database.
 ---
 
-# SeekDB Documentation Index Tool
+# Seekdb Documentation Index Tool
 
-This tool provides documentation for the SeekDB database. You can find all SeekDB-related knowledge and information here.
+This tool provides documentation for the seekdb database. You can find all seekdb-related knowledge and information here.
 
 ## Directory Structure
 The official-docs directory contains all database documentation. Each file's name is the file's title, and all titles are in English.
