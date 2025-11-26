@@ -1,10 +1,11 @@
+[English](README.md) | 简体中文
 # Seekdb Claude Code 插件
 
 > 本插件包含 seekdb 的 Claude Code 技能，提供 seekdb 数据库相关文档支持。
 
 ## 📖 项目概述
 
-seekdb 技能专为 Claude Code 设计，旨在增强 Claude 在 seekdb 数据库场景下的能力。通过这些技能，Claude 可以查询完整的 seekdb 官方文档，获取技术指导和最佳实践。
+seekdb 技能为 Claude Code 设计，旨在增强 Claude 在 seekdb 数据库场景下的能力。通过这些技能，Claude 可以查询完整的 seekdb 官方文档，获取技术指导和最佳实践。
 
 ## ✨ 核心功能
 

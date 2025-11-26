@@ -1,3 +1,4 @@
+English | [简体中文](README_CN.md)  
 # Seekdb Plugin for Claude Code
 
 > This plugin contains seekdb skill for Claude Code that provides seekdb database-related documents.
