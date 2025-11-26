@@ -79,23 +79,25 @@ Claude will automatically search the documentation library and provide accurate 
 ## 📂 Project Structure
 
 ```
-seekdb-skills/
+seekdb-claudecode-plugin/
 ├── README.md                           # Project documentation
-├── LEGAL.md                           # Legal notice
-└── packages/
-    └── seekdb-docs/                   # Document query skill
-        ├── SKILL.md                   # skill documentation
-        ├── example/
-        │   ├── search_docs.js         # Document search example
-        │   └── package.json           # Dependencies configuration
-        ├── *.md                       # English documentation index
-        └── zh-CN/                     # Chinese documentation library
-            ├── 10.doc-overview.md     # Documentation overview
-            ├── 100.get-started/       # Quick start
-            ├── 200.develop/           # Development guide
-            ├── 300.integrations/      # Integration guide
-            ├── 400.guides/            # Operations guide
-            └── 500.tutorials/         # Practice tutorials
+├── README_CN.md                        # Chinese documentation
+├── plugin.json                         # Plugin configuration
+└── skills/
+    └── seekdb-docs/                    # Document query skill
+        ├── SKILL.md                    # Skill documentation
+        ├── get-started.md              # Quick start documentation index
+        ├── develop.md                  # Development guide documentation index
+        ├── integrations.md             # Integration guide documentation index
+        ├── guides.md                   # Operations guide documentation index
+        ├── tutorials.md                # Practice tutorials documentation index
+        └── official-docs/              # Official documentation library
+            ├── 10.doc-overview.md      # Documentation overview
+            ├── 100.get-started/        # Quick start guide
+            ├── 200.develop/            # Development guide
+            ├── 300.integrations/       # Integration guide
+            ├── 400.guides/             # Operations guide
+            └── 500.tutorials/          # Practice tutorials
 ```
 
 ## 🔧 Development & Contribution
@@ -104,14 +106,14 @@ seekdb-skills/
 
 To add a new skill for seekdb:
 
-1. Create a new skill folder under the `seekdb-plugin/skills` directory
+1. Create a new skill folder under the `./skills` directory
 2. Add a `SKILL.md` file defining the skill's functionality and usage
 3. Add necessary support files and example code
 4. Update this README document
 
 ### Updating Documentation
 
-The documentation content for seekdb-docs is located in the `seekdb-plugin/skills/seekdb-docs/official-docs` directory and can be synchronized based on updates to the seekdb official documentation.
+The documentation content for seekdb-docs is located in the `./skills/seekdb-docs/official-docs` directory and can be synchronized based on updates to the seekdb official documentation.
 
 ## 📋 About Agent Skills
 
@@ -126,9 +128,6 @@ Learn more about Agent Skills:
 - [Agent Skills Overview](https://docs.anthropic.com/en/docs/agent-skills)
 - [Using Agent Skills to Equip Agents for the Real World](https://www.anthropic.com/news/agent-skills)
 
-## 📄 License
-
-Please refer to the [LEGAL.md](./LEGAL.md) file for relevant legal information.
 
 ## 🔗 Related Links
 
