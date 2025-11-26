@@ -43,7 +43,7 @@ seekdb 技能为 Claude Code 设计，旨在增强 Claude 在 seekdb 数据库�
 
 ### 安装
 
-- 添加 seekDB 的市场
+- 添加 seekdb 的市场
 ```bash
 /plugin marketplace add oceanbase/ecology-plugins
 ```

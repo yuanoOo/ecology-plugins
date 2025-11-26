@@ -43,7 +43,7 @@ Provides a complete seekdb database documentation knowledge base with document q
 
 ### Installation
 
-- Add seekDB's marketplace
+- Add seekdb's marketplace
 ```bash
 /plugin marketplace add oceanbase/ecology-plugins
 ```
