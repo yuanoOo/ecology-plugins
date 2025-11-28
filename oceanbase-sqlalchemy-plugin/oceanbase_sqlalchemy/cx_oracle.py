@@ -60,17 +60,18 @@ class OceanBaseDialect_cx_oracle(OracleDialect_cx_oracle):
         """
         Get OceanBase server version information
 
-        Issue: cx_Oceanbase driver returns "0.0.0.0.1" for connection.version,
+        Issue1: cx_Oceanbase driver returns "0.0.0.0.1" for connection.version,
         causing SQLAlchemy to misidentify it as Oracle 8 and set supports_unicode_binds to False,
         which encodes all string parameters as bytes, resulting in NVARCHAR2 query failures.
 
-        Solution: Extract the real OceanBase version number from v$version banner.
+        Issue2: Hard-code a pre-12c version so SQLAlchemy will not try to query
+        Oracle-only dictionary views such as ALL_TAB_IDENTITY_COLS, which
+        OceanBase does not implement. Unicode bind support is forced on in
+        initialize(), so we do not rely on the reported version for that.
+        _column_query() in base.py will fail with ORA-00942: table or view does not exist.
         """
 
-        # Fallback: Return a reasonable default version
-        # Note: Due to Python tuple comparison (4, x, x) < (9,) evaluates to True
-        # Use (21, 0, 0, 0, 0) to simulate Oracle 21g, ensuring it won't be misidentified as Oracle 8
-        return (21, 0, 0, 0, 0)
+        return (11, 2, 0, 0)
 
     def initialize(self, connection):
         """
