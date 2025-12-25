@@ -48,10 +48,7 @@ cd metabase-oceanbase-plugin
 #### 2. Build Plugin
 
 ```bash
-# Build all drivers
-./bin/build-drivers.sh
-
-# Or build only OceanBase driver
+# Build OceanBase driver
 cd modules/drivers/oceanbase
 clojure -M:build
 ```

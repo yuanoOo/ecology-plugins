@@ -48,10 +48,7 @@ cd metabase-oceanbase-plugin
 #### 2. 构建插件
 
 ```bash
-# 构建所有驱动
-./bin/build-drivers.sh
-
-# 或者只构建 OceanBase 驱动
+# 构建 OceanBase 驱动
 cd modules/drivers/oceanbase
 clojure -M:build
 ```
