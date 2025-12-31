@@ -1,0 +1,117 @@
+name: Build and Release Flyway OceanBase Plugin
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., 10.16.1)'
+        required: true
+        type: string
+      tag_name:
+        description: 'Git tag name (e.g., v10.16.1)'
+        required: true
+        type: string
+      release_name:
+        description: 'Release name (optional, defaults to tag_name)'
+        required: false
+        type: string
+      release_notes:
+        description: 'Release notes (optional)'
+        required: false
+        type: string
+        default: 'Automated release of Flyway OceanBase Plugin'
+      create_tag:
+        description: 'Create git tag if it does not exist'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: write  # Required for creating releases and tags
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for tags
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build Flyway Plugin
+        run: |
+          cd flyway-oceanbase-plugin
+          ./mvnw clean package -DskipTests
+
+      - name: Find and verify JAR file
+        id: find_jar
+        run: |
+          JAR_DIR="flyway-oceanbase-plugin/flyway-database-oceanbase/target"
+          # Try to find JAR file with version
+          JAR_FILE=$(find "$JAR_DIR" -name "flyway-database-oceanbase-*.jar" ! -name "*-sources.jar" ! -name "*-javadoc.jar" | head -1)
+          
+          if [ -z "$JAR_FILE" ] || [ ! -f "$JAR_FILE" ]; then
+            echo "Error: JAR file not found in $JAR_DIR"
+            ls -la "$JAR_DIR" || true
+            exit 1
+          fi
+          
+          JAR_NAME=$(basename "$JAR_FILE")
+          echo "JAR file found: $JAR_FILE"
+          echo "JAR name: $JAR_NAME"
+          ls -lh "$JAR_FILE"
+          
+          # Set output for later steps
+          echo "jar_path=$JAR_FILE" >> $GITHUB_OUTPUT
+          echo "jar_name=$JAR_NAME" >> $GITHUB_OUTPUT
+
+      - name: Create Git Tag (if not exists)
+        if: inputs.create_tag == true
+        run: |
+          TAG_NAME="${{ inputs.tag_name }}"
+          if git rev-parse "$TAG_NAME" >/dev/null 2>&1; then
+            echo "Tag $TAG_NAME already exists, skipping tag creation"
+          else
+            echo "Creating tag $TAG_NAME"
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git tag -a "$TAG_NAME" -m "Release $TAG_NAME: ${{ inputs.release_notes }}"
+            git push origin "$TAG_NAME"
+          fi
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ inputs.tag_name }}
+          name: ${{ inputs.release_name || inputs.tag_name }}
+          body: |
+            ## Flyway OceanBase Plugin Release ${{ inputs.tag_name }}
+            
+            ${{ inputs.release_notes }}
+            
+            ### Installation
+            
+            Download the JAR file and place it in your Flyway plugins directory.
+            
+            ### Build Information
+            - Version: ${{ inputs.version }}
+            - Build Date: ${{ github.run_started_at }}
+            - Commit: ${{ github.sha }}
+            - Workflow Run: ${{ github.run_id }}
+          draft: false
+          prerelease: false
+          files: ${{ steps.find_jar.outputs.jar_path }}
+
+      - name: Display Release URL
+        run: |
+          echo "Release created successfully!"
+          echo "Release URL: https://github.com/${{ github.repository }}/releases/tag/${{ inputs.tag_name }}"
